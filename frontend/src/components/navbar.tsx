@@ -12,7 +12,7 @@ import React from "react";
 
 const Navbar = () => {
   return (
-    <div className="bg-white text-[14px]">
+    <div className="bg-white px-[16px] text-[14px]">
       <div className="border-b py-[12px]">
         {/* <div className="mx-auto  flex items-center justify-between gap-4 md:gap-8 "> */}
         <div className="mx-auto  grid grid-cols-12 gap-2.5">
