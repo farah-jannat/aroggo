@@ -13,7 +13,7 @@ import React from "react";
 const Navbar = () => {
   return (
     <div className="bg-white text-[14px]">
-      <div className="border-b  px-[16px] py-[12px]">
+      <div className="border-b py-[12px]">
         {/* <div className="mx-auto  flex items-center justify-between gap-4 md:gap-8 "> */}
         <div className="mx-auto  grid grid-cols-12 gap-2.5">
           <div className="flex items-center order-1 gap-2 col-span-6 max-[320px]:col-span-full sm:col-span-4 lg:col-span-2 lg:gap-2 ">
@@ -57,7 +57,7 @@ const Navbar = () => {
             </div>
           </div>
 
-          <div className="flex items-center sm:justify-end gap-3 font-sans col-span-6 max-[320px]:col-span-full  sm:col-span-8 order-2 md:col-span-4 lg:order-4 lg:col-span-3">
+          <div className="flex items-center justify-end gap-3 font-sans col-span-6 max-[320]:justify-start max-[320px]:col-span-full  sm:col-span-8 order-2 md:col-span-4 lg:order-4 lg:col-span-3">
             {/* Account */}
             <div className="flex items-center justify-center xl:hidden rounded-lg border-1 border-[#F97316] bg-[#FFF7ED] px-[8px] py-[4px] text-[14px] font-medium text-[#C2410C]">
               ৳ 0
