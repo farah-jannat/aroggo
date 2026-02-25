@@ -12,16 +12,20 @@ import { Pagination, Navigation } from "swiper/modules";
 
 const PromoSection = () => {
   return (
-
-    <div className="w-full py-10 px-[32px]">
-      <h2 className="text-center font-bold mb-4 text-[14px] md:text-[20px] text-black">Especially For You</h2>
+    <div className="w-full px-[16px] py-10">
+      <h2 className="text-center font-bold mb-4 text-[14px] md:text-[20px] text-black">
+        Especially For You
+      </h2>
       <Swiper
-        slidesPerView={2.5} // Show a peek of the next slide on mobile
+        slidesPerView={1} // Show a peek of the next slide on mobile
         spaceBetween={10}
         centeredSlides={false} // Usually better for this layout unless you have many items
         navigation={true}
         breakpoints={{
           // Responsive breakpoints
+
+          300: { slidesPerView: 2 },
+          500:{slidesPerView:3},
           640: { slidesPerView: 4 },
           1024: { slidesPerView: 5 },
           1280: { slidesPerView: 6 },
