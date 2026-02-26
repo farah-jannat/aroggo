@@ -12,7 +12,7 @@ export interface PromoCardTypes {
 
   buttonText: string;
 
-  icon: LucideIcon;
+  icon: string;
 
   variant: PromoVariant;
 }
@@ -22,7 +22,7 @@ const PromoCard = ({
   subtitle,
   detail,
   buttonText,
-  icon: Icon,
+  icon,
   variant,
 }: PromoCardTypes) => {
   const variants = {
@@ -43,8 +43,12 @@ const PromoCard = ({
     >
       <div className="rounded-lg  absolute left-auto right-0 h-full flex ">
         {/* Icon Badge */}
-        <div className="absolute top-4 right-4 bg-inherit brightness-90 p-2 rounded-full border-4 border-white">
-          <Icon size={30} className="text-white" fill="currentColor" />
+        <div className="absolute top-0 right-0 ">
+          <img
+            src="/footer3.avif"
+            className="w-full h-full  rounded-full "
+            alt=""
+          />
         </div>
       </div>
 
