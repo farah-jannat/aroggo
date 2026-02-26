@@ -6,10 +6,12 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/pagination";
 import { Pagination, Autoplay } from "swiper/modules";
+import { bannerImages } from "@/constants";
 
 const Carousel = () => {
   return (
-    <div className="w-full max-[h-70]:">
+    <div className="w-full [h-40]">
+
       <Swiper
         // 2. Add Autoplay configuration
         autoplay={{
@@ -23,34 +25,18 @@ const Carousel = () => {
         modules={[Pagination, Autoplay]}
         className="mySwiper h-full"
       >
-        <SwiperSlide className="flex items-center justify-center rounded-2xl">
-          <img
-            src={"/hero1.avif"}
-            alt=""
-            className=" w-full h-full object-cover  rounded-2xl"
-          />
-        </SwiperSlide>
-        <SwiperSlide className="flex items-center justify-center ">
-          <img
-            src={"/hero2.avif"}
-            alt=""
-            className="w-full h-full rounded-2xl"
-          />
-        </SwiperSlide>
-        <SwiperSlide className="flex items-center justify-center ">
-          <img
-            src={"/hero1.avif"}
-            alt=""
-            className="w-full h-full rounded-2xl"
-          />
-        </SwiperSlide>
-        <SwiperSlide className="flex items-center justify-center ">
-          <img
-            src={"/hero3.avif"}
-            alt=""
-            className="w-full h-full rounded-2xl"
-          />
-        </SwiperSlide>
+        {bannerImages.map((imageUrl, index) => (
+          <SwiperSlide
+            key={index}
+            className="flex items-center justify-center rounded-2xl"
+          >
+            <img
+              src={imageUrl}
+              alt={`Banner ${index + 1}`}
+              className="w-full h-full object-cover rounded-2xl"
+            />
+          </SwiperSlide>
+        ))}
       </Swiper>
     </div>
   );

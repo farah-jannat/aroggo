@@ -19,31 +19,10 @@ interface CartItem extends Product {
 interface CartState {
   cart: CartItem[];
   addToCart: (product: Product) => void;
-  // Simplified getters
-  getTotalItems: () => number;
-  getTotalPrice: () => number;
 }
 
 const useCartStore = create<CartState>((set, get) => ({
   cart: [],
-
-  // 1. Easy way to count total items
-  getTotalItems: () => {
-    let total = 0;
-    get().cart.forEach((item) => {
-      total += item.quantity;
-    });
-    return total;
-  },
-
-  // 2. Easy way to calculate total price
-  getTotalPrice: () => {
-    let total = 0;
-    get().cart.forEach((item) => {
-      total += item.price * item.quantity;
-    });
-    return total;
-  },
 
   addToCart: (product) => {
     const cart = get().cart;
@@ -59,7 +38,7 @@ const useCartStore = create<CartState>((set, get) => ({
       });
     } else {
       set({ cart: [...cart, { ...product, quantity: 1 }] });
-      console.log("add to cart check ", cart)
+      console.log("add to cart check ", cart);
     }
   },
 }));
