@@ -1,3 +1,4 @@
+import FloatingCart from "@/components/floatingCart";
 import {
   Facebook,
   Instagram,
@@ -151,7 +152,7 @@ const Footer = () => {
       </div>
 
       {/* Floating Elements (Simulated) */}
-      <div className="fixed bottom-6 right-6 flex flex-col items-end gap-3">
+      <div className="fixed bottom-6 right-6 flex flex-col items-end gap-3 z-50">
         <div className="bg-white text-black px-4 py-2 rounded-lg text-xs shadow-lg flex items-center gap-2">
           <span>Welcome to Arogga! Ask your query here.👋</span>
           <button className="font-bold">✕</button>
@@ -159,6 +160,9 @@ const Footer = () => {
         <div className="bg-teal-500 p-4 rounded-full shadow-xl cursor-pointer">
           <MessageCircle className="text-white" />
         </div>
+      </div>
+      <div className="fixed top-34 right-0 flex flex-col items-end gap-3 z-50">
+        <FloatingCart />
       </div>
     </footer>
   );
