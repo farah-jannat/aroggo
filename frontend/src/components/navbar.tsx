@@ -17,10 +17,9 @@ const Navbar = () => {
   return (
     <div className="bg-white px-[16px] text-[14px]">
       <div className="border-b py-[12px]">
-        {/* <div className="mx-auto  flex items-center justify-between gap-4 md:gap-8 "> */}
         <div className="mx-auto  grid grid-cols-12 gap-2.5">
           <div className="flex items-center order-1 gap-2 col-span-6 max-[320px]:col-span-full sm:col-span-4 lg:col-span-2 lg:gap-2 ">
-            <Menu onClick={toggleSidebar} size={24} className="text-black xl:hidden" />
+            <Menu onClick={toggleSidebar} size={24} className="text-black " />
             <Link href="/" className="flex-shrink-0">
               <img src={"/logo.avif"} width={106} height={48} />
             </Link>
