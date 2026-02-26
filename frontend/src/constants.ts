@@ -5,7 +5,7 @@ export const promoData = [
     subtitle: "Via WhatsApp",
     detail: "01810117100",
     buttonText: "Call Now",
-    icon: "/promo-img1.avif",
+    icon: "https://www.arogga.com/_next/image?url=https%3A%2F%2Fcdn2.arogga.com%2FeyJidWNrZXQiOiJhcm9nZ2EiLCJrZXkiOiJCbG9jay1iX2NvbmZpZ1wvMFwvMTI1LUdyb3VwLTM4NDk2LXBmOHcyYi5wbmciLCJlZGl0cyI6eyJyZXNpemUiOnsid2lkdGgiOjgwLCJoZWlnaHQiOjgwLCJmaXQiOiJvdXRzaWRlIn19fQ%3D%3D&w=96&q=75",
   },
 
   {
@@ -15,7 +15,7 @@ export const promoData = [
     detail: "+ Cashback",
     buttonText: "Register",
 
-    icon: "/promo-img1.avif",
+    icon: "https://www.arogga.com/_next/image?url=https%3A%2F%2Fcdn2.arogga.com%2FeyJidWNrZXQiOiJhcm9nZ2EiLCJrZXkiOiJCbG9jay1iX2NvbmZpZ1wvMFwvMTI1LUdyb3VwLTM4NDk1LTlkNGtuMi5wbmciLCJlZGl0cyI6eyJyZXNpemUiOnsid2lkdGgiOjgwLCJoZWlnaHQiOjgwLCJmaXQiOiJvdXRzaWRlIn19fQ%3D%3D&w=96&q=75",
   },
   {
     variant: "cyan",
@@ -23,7 +23,7 @@ export const promoData = [
     subtitle: "10% OFF",
     detail: "+ Cashback",
     buttonText: "Prescription",
-    icon: "/promo-img1.avif",
+    icon: "https://www.arogga.com/_next/image?url=https%3A%2F%2Fcdn2.arogga.com%2FeyJidWNrZXQiOiJhcm9nZ2EiLCJrZXkiOiJCbG9jay1iX2NvbmZpZ1wvMFwvMTI1LUdyb3VwLTM4NDk3LWg3Z3Zxei5wbmciLCJlZGl0cyI6eyJyZXNpemUiOnsid2lkdGgiOjgwLCJoZWlnaHQiOjgwLCJmaXQiOiJvdXRzaWRlIn19fQ%3D%3D&w=96&q=75",
   },
   {
     variant: "lime",
@@ -32,7 +32,7 @@ export const promoData = [
     detail: "+ Cashback",
     buttonText: "Register",
 
-    icon: "/promo-img1.avif",
+    icon: "https://www.arogga.com/_next/image?url=https%3A%2F%2Fcdn2.arogga.com%2FeyJidWNrZXQiOiJhcm9nZ2EiLCJrZXkiOiJCbG9jay1iX2NvbmZpZ1wvMFwvMTI1LUdyb3VwLTM4NDk3LWg3Z3Zxei5wbmciLCJlZGl0cyI6eyJyZXNpemUiOnsid2lkdGgiOjgwLCJoZWlnaHQiOjgwLCJmaXQiOiJvdXRzaWRlIn19fQ%3D%3D&w=96&q=75",
   },
 
   {
@@ -41,7 +41,7 @@ export const promoData = [
     subtitle: "Via WhatsApp",
     detail: "01810117100",
     buttonText: "Call Now",
-    icon: "/promo-img1.avif",
+    icon: "https://www.arogga.com/_next/image?url=https%3A%2F%2Fcdn2.arogga.com%2FeyJidWNrZXQiOiJhcm9nZ2EiLCJrZXkiOiJCbG9jay1iX2NvbmZpZ1wvMFwvMTI1LUdyb3VwLTM4NDk2LXBmOHcyYi5wbmciLCJlZGl0cyI6eyJyZXNpemUiOnsid2lkdGgiOjgwLCJoZWlnaHQiOjgwLCJmaXQiOiJvdXRzaWRlIn19fQ%3D%3D&w=96&q=75",
   },
 
   {
@@ -50,7 +50,7 @@ export const promoData = [
     subtitle: "Via WhatsApp",
     detail: "01810117100",
     buttonText: "Call Now",
-    icon: "/promo-img1.avif",
+    icon: "https://www.arogga.com/_next/image?url=https%3A%2F%2Fcdn2.arogga.com%2FeyJidWNrZXQiOiJhcm9nZ2EiLCJrZXkiOiJCbG9jay1iX2NvbmZpZ1wvMFwvMTI1LUdyb3VwLTM4NDk3LWg3Z3Zxei5wbmciLCJlZGl0cyI6eyJyZXNpemUiOnsid2lkdGgiOjgwLCJoZWlnaHQiOjgwLCJmaXQiOiJvdXRzaWRlIn19fQ%3D%3D&w=96&q=75",
   },
 
   {
@@ -59,7 +59,7 @@ export const promoData = [
     subtitle: "Via WhatsApp",
     detail: "01810117100",
     buttonText: "Call Now",
-    icon: "/promo-img1.avif",
+    icon: "https://www.arogga.com/_next/image?url=https%3A%2F%2Fcdn2.arogga.com%2FeyJidWNrZXQiOiJhcm9nZ2EiLCJrZXkiOiJCbG9jay1iX2NvbmZpZ1wvMFwvMTI1LUdyb3VwLTM4NDk3LWg3Z3Zxei5wbmciLCJlZGl0cyI6eyJyZXNpemUiOnsid2lkdGgiOjgwLCJoZWlnaHQiOjgwLCJmaXQiOiJvdXRzaWRlIn19fQ%3D%3D&w=96&q=75",
   },
   // Add as many more objects as you need here...
 ];
@@ -142,10 +142,15 @@ export const products = [
 
 export const bannerImages = [
   "https://www.arogga.com/_next/image?url=https%3A%2F%2Fcdn2.arogga.com%2FeyJidWNrZXQiOiJhcm9nZ2EiLCJrZXkiOiJCbG9jay1iX2NvbmZpZ1wvMFwvMTEzLVdlYi1iYW5uZXItOTgwLXgtNDI4LWtqeWx6YS5qcGVnIiwiZWRpdHMiOltdfQ%3D%3D&w=1280&q=75",
+
   "https://www.arogga.com/_next/image?url=https%3A%2F%2Fcdn2.arogga.com%2FeyJidWNrZXQiOiJhcm9nZ2EiLCJrZXkiOiJCbG9jay1iX2NvbmZpZ1wvMFwvMTEzLVJhbWFkYW4tV0VCQkFOTkVSLXR1ZHhudi5wbmciLCJlZGl0cyI6W119&w=1280&q=75",
+
   "https://www.arogga.com/_next/image?url=https%3A%2F%2Fcdn2.arogga.com%2FeyJidWNrZXQiOiJhcm9nZ2EiLCJrZXkiOiJCbG9jay1iX2NvbmZpZ1wvMFwvMTEzLWFyb2dnYS1vNTdycHQucG5nIiwiZWRpdHMiOltdfQ%3D%3D&w=1280&q=75",
+
   "https://www.arogga.com/_next/image?url=https%3A%2F%2Fcdn2.arogga.com%2FeyJidWNrZXQiOiJhcm9nZ2EiLCJrZXkiOiJCbG9jay1iX2NvbmZpZ1wvMFwvMTEzLVBOUy1QYW5kYW1hcnQtQmFubmVyXzI1NjAteC0xMDk3LXB4LWZ3cHB6aS5wbmciLCJlZGl0cyI6W119&w=1280&q=75",
-  "/hero4.avif",
+
+  "https://www.arogga.com/_next/image?url=https%3A%2F%2Fcdn2.arogga.com%2FeyJidWNrZXQiOiJhcm9nZ2EiLCJrZXkiOiJCbG9jay1iX2NvbmZpZ1wvMFwvMTE1LXVuYmVhdGFibGUtcHJpY2UtemM1ajViLnBuZyIsImVkaXRzIjp7InJlc2l6ZSI6eyJ3aWR0aCI6MTUwMCwiaGVpZ2h0Ijo2MDAsImZpdCI6Im91dHNpZGUifX19&w=1280&q=75",
+
   "https://www.arogga.com/_next/image?url=https%3A%2F%2Fcdn2.arogga.com%2FeyJidWNrZXQiOiJhcm9nZ2EiLCJrZXkiOiJCbG9jay1iX2NvbmZpZ1wvMFwvMTEzLWFyb2dnYS1sYWItc2o0YjNyLnBuZyIsImVkaXRzIjpbXX0%3D&w=1280&q=75",
 ];
 
@@ -293,7 +298,6 @@ export const folders = [
     ],
   },
 
-
   {
     name: "PharmaCare",
 
@@ -317,7 +321,6 @@ export const folders = [
       { name: "Chemotherapi" },
     ],
   },
-
 
   {
     name: "PharmaCare",
