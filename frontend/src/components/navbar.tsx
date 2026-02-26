@@ -12,11 +12,10 @@ import Link from "next/link";
 import React from "react";
 
 const Navbar = () => {
-
   const { toggleSidebar } = useSidebarStore();
   return (
-    <div className="bg-white px-[16px] text-[14px]">
-      <div className="border-b py-[12px]">
+    <div className="bg-white  text-[14px]">
+      <div className=" px-[16px] shadow-sm pb-[26px]  py-[12px]">
         <div className="mx-auto  grid grid-cols-12 gap-2.5">
           <div className="flex items-center order-1 gap-2 col-span-6 max-[320px]:col-span-full sm:col-span-4 lg:col-span-2 lg:gap-2 ">
             <Menu onClick={toggleSidebar} size={24} className="text-black " />

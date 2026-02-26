@@ -10,7 +10,7 @@ import { bannerImages } from "@/constants";
 
 const Carousel = () => {
   return (
-    <div className="w-full [h-40]">
+    <div className="w-full h-full">
 
       <Swiper
         // 2. Add Autoplay configuration

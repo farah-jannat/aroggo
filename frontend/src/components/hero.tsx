@@ -3,7 +3,7 @@ import React from "react";
 
 const Hero = () => {
   return (
-    <div className=" px-[16px] py-[16px]">
+    <div className=" h-[540px] px-[16px] pt-[34px] pb-[20px]">
       <Carousel />
     </div>
   );
