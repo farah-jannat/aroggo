@@ -15,7 +15,6 @@ import "swiper/css/navigation";
 
 import { Pagination, Navigation } from "swiper/modules";
 import ProductCard from "@/components/productCard";
-import DealsHeader from "@/components/dealsHeader";
 import { products } from "@/constants";
 
 interface ProductSectionProps {
