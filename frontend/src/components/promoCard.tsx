@@ -37,20 +37,19 @@ const PromoCard = ({
     lime: "text-lime-600",
   };
 
+  console.log("icon of promo card", icon);
+
   return (
     <div
-      className={`relative w-full max-w-[180px]  md:max-w-[200px] p-4 rounded-2xl rounded-tr-[70px] bg-gradient-to-b ${variants[variant]} flex flex-col justify-between min-h-[200px] shadow-sm `}
+      className={`relative w-full max-w-[180px]  md:max-w-[200px] p-4 rounded-2xl rounded-tr-[90px] bg-gradient-to-b ${variants[variant]} flex flex-col justify-between min-h-[200px] shadow-sm `}
     >
-      <div className="rounded-lg  absolute left-auto right-0 h-full flex ">
-        {/* Icon Badge */}
-        <div className="absolute top-0 right-0 ">
-          <img
-            src="/footer3.avif"
-            className="w-full h-full  rounded-full "
-            alt=""
-          />
-        </div>
+      {/* <div className="rounded-lg  absolute left-auto top-0 right-[-20px] h-full flex "> */}
+      {/* Icon Badge */}
+      <div className="absolute top-0 right-[-4px]  w-[60px] h-[60px]">
+        {/* <img src={icon} className="w-full h-full  rounded-full " alt="" /> */}
+        <img src={icon} className="w-full h-full  rounded-full " alt="" />
       </div>
+      {/* </div> */}
 
       {/* Content */}
       <div className="mt-4 text-black">
