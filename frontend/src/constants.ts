@@ -148,3 +148,186 @@ export const bannerImages = [
   "/hero4.avif",
   "https://www.arogga.com/_next/image?url=https%3A%2F%2Fcdn2.arogga.com%2FeyJidWNrZXQiOiJhcm9nZ2EiLCJrZXkiOiJCbG9jay1iX2NvbmZpZ1wvMFwvMTEzLWFyb2dnYS1sYWItc2o0YjNyLnBuZyIsImVkaXRzIjpbXX0%3D&w=1280&q=75",
 ];
+
+export const folders = [
+  {
+    name: "Medicine",
+    image:
+      "https://www.arogga.com/_next/image?url=https%3A%2F%2Fcdn2.arogga.com%2FeyJidWNrZXQiOiJhcm9nZ2EiLCJrZXkiOiJUYXhvbm9teS10X2Jhbm5lclwvNzE1NVwvNzE1NS1hc2QtdW44cXZnLmpwZWciLCJlZGl0cyI6eyJyZXNpemUiOnsid2lkdGgiOjM1LCJoZWlnaHQiOjM1LCJmaXQiOiJvdXRzaWRlIn19fQ%3D%3D&w=48&q=75",
+    folders: [
+      {
+        name: "Anesthetics",
+        image:
+          "https://www.arogga.com/_next/image?url=https%3A%2F%2Fcdn2.arogga.com%2FeyJidWNrZXQiOiJhcm9nZ2EiLCJrZXkiOiJUYXhvbm9teS10X2Jhbm5lclwvNzA2NlwvNzA2Ni1IYWlyX2NjYXJlLWVjNW0zcS5wbmciLCJlZGl0cyI6eyJyZXNpemUiOnsid2lkdGgiOjM1LCJoZWlnaHQiOjM1LCJmaXQiOiJvdXRzaWRlIn19fQ%3D%3D&w=48&q=75",
+        folders: [
+          {
+            name: "muscle Relaxants",
+
+            image:
+              "https://www.arogga.com/_next/image?url=https%3A%2F%2Fcdn2.arogga.com%2FeyJidWNrZXQiOiJhcm9nZ2EiLCJrZXkiOiJUYXhvbm9teS10X2Jhbm5lclwvNzI0OVwvNzI0OS1NYWtldXAtbWJyczBzLnBuZyIsImVkaXRzIjp7InJlc2l6ZSI6eyJ3aWR0aCI6MzUsImhlaWdodCI6MzUsImZpdCI6Im91dHNpZGUifX19&w=48&q=75",
+            folders: [
+              {
+                name: "hola",
+
+                image:
+                  "https://www.arogga.com/_next/image?url=https%3A%2F%2Fcdn2.arogga.com%2FeyJidWNrZXQiOiJhcm9nZ2EiLCJrZXkiOiJUYXhvbm9teS10X2Jhbm5lclwvNzExNVwvNzExNS1QZXJzb25hbC1DYXJlLWEzeHhoNy5wbmciLCJlZGl0cyI6eyJyZXNpemUiOnsid2lkdGgiOjM1LCJoZWlnaHQiOjM1LCJmaXQiOiJvdXRzaWRlIn19fQ%3D%3D&w=48&q=75",
+              },
+              {
+                name: "inside",
+
+                image:
+                  "https://www.arogga.com/_next/image?url=https%3A%2F%2Fcdn2.arogga.com%2FeyJidWNrZXQiOiJhcm9nZ2EiLCJrZXkiOiJUYXhvbm9teS10X2Jhbm5lclwvMTA5NzJcLzEwOTcyLU9yZ2FuaWMtQmVhdXR5LW82cXMyeC5wbmciLCJlZGl0cyI6eyJyZXNpemUiOnsid2lkdGgiOjM1LCJoZWlnaHQiOjM1LCJmaXQiOiJvdXRzaWRlIn19fQ%3D%3D&w=48&q=75",
+              },
+            ],
+          },
+          {
+            name: "Post Operative",
+
+            image:
+              "https://www.arogga.com/_next/image?url=https%3A%2F%2Fcdn2.arogga.com%2FeyJidWNrZXQiOiJhcm9nZ2EiLCJrZXkiOiJUYXhvbm9teS10X2Jhbm5lclwvMTA5NzJcLzEwOTcyLU9yZ2FuaWMtQmVhdXR5LW82cXMyeC5wbmciLCJlZGl0cyI6eyJyZXNpemUiOnsid2lkdGgiOjM1LCJoZWlnaHQiOjM1LCJmaXQiOiJvdXRzaWRlIn19fQ%3D%3D&w=48&q=75",
+          },
+        ],
+      },
+      {
+        name: "Antimicrobial",
+
+        image:
+          "https://www.arogga.com/_next/image?url=https%3A%2F%2Fcdn2.arogga.com%2FeyJidWNrZXQiOiJhcm9nZ2EiLCJrZXkiOiJUYXhvbm9teS10X2Jhbm5lclwvMTA5NzJcLzEwOTcyLU9yZ2FuaWMtQmVhdXR5LW82cXMyeC5wbmciLCJlZGl0cyI6eyJyZXNpemUiOnsid2lkdGgiOjM1LCJoZWlnaHQiOjM1LCJmaXQiOiJvdXRzaWRlIn19fQ%3D%3D&w=48&q=75",
+      },
+      {
+        name: "Chemotherapi",
+
+        image:
+          "https://www.arogga.com/_next/image?url=https%3A%2F%2Fcdn2.arogga.com%2FeyJidWNrZXQiOiJhcm9nZ2EiLCJrZXkiOiJUYXhvbm9teS10X2Jhbm5lclwvMTA5NzJcLzEwOTcyLU9yZ2FuaWMtQmVhdXR5LW82cXMyeC5wbmciLCJlZGl0cyI6eyJyZXNpemUiOnsid2lkdGgiOjM1LCJoZWlnaHQiOjM1LCJmaXQiOiJvdXRzaWRlIn19fQ%3D%3D&w=48&q=75",
+      },
+    ],
+  },
+
+  {
+    name: "HealthCare",
+
+    image:
+      "https://www.arogga.com/_next/image?url=https%3A%2F%2Fcdn2.arogga.com%2FeyJidWNrZXQiOiJhcm9nZ2EiLCJrZXkiOiJUYXhvbm9teS10X2Jhbm5lclwvNjk3OVwvNjk3OS1NYWtldXAtOC10eDB3aXoucG5nIiwiZWRpdHMiOnsicmVzaXplIjp7IndpZHRoIjozNSwiaGVpZ2h0IjozNSwiZml0Ijoib3V0c2lkZSJ9fX0%3D&w=48&q=75",
+    folders: [
+      {
+        name: "Anesthetics",
+
+        image:
+          "https://www.arogga.com/_next/image?url=https%3A%2F%2Fcdn2.arogga.com%2FeyJidWNrZXQiOiJhcm9nZ2EiLCJrZXkiOiJUYXhvbm9teS10X2Jhbm5lclwvNjk3OVwvNjk3OS1NYWtldXAtOC10eDB3aXoucG5nIiwiZWRpdHMiOnsicmVzaXplIjp7IndpZHRoIjozNSwiaGVpZ2h0IjozNSwiZml0Ijoib3V0c2lkZSJ9fX0%3D&w=48&q=75",
+      },
+      {
+        name: "Antimicrobial",
+
+        image:
+          "https://www.arogga.com/_next/image?url=https%3A%2F%2Fcdn2.arogga.com%2FeyJidWNrZXQiOiJhcm9nZ2EiLCJrZXkiOiJUYXhvbm9teS10X2Jhbm5lclwvNjk3OVwvNjk3OS1NYWtldXAtOC10eDB3aXoucG5nIiwiZWRpdHMiOnsicmVzaXplIjp7IndpZHRoIjozNSwiaGVpZ2h0IjozNSwiZml0Ijoib3V0c2lkZSJ9fX0%3D&w=48&q=75",
+      },
+      {
+        name: "Chemotherapi",
+
+        image:
+          "https://www.arogga.com/_next/image?url=https%3A%2F%2Fcdn2.arogga.com%2FeyJidWNrZXQiOiJhcm9nZ2EiLCJrZXkiOiJUYXhvbm9teS10X2Jhbm5lclwvNjk3OVwvNjk3OS1NYWtldXAtOC10eDB3aXoucG5nIiwiZWRpdHMiOnsicmVzaXplIjp7IndpZHRoIjozNSwiaGVpZ2h0IjozNSwiZml0Ijoib3V0c2lkZSJ9fX0%3D&w=48&q=75",
+      },
+    ],
+  },
+
+  {
+    name: "PharmaCare",
+
+    image:
+      "https://www.arogga.com/_next/image?url=https%3A%2F%2Fcdn2.arogga.com%2FeyJidWNrZXQiOiJhcm9nZ2EiLCJrZXkiOiJUYXhvbm9teS10X2Jhbm5lclwvNjE3NFwvNjE3NC1oZXJiYWwtOTNqeHppLnBuZyIsImVkaXRzIjp7InJlc2l6ZSI6eyJ3aWR0aCI6MzUsImhlaWdodCI6MzUsImZpdCI6Im91dHNpZGUifX19&w=48&q=75",
+    folders: [
+      {
+        name: "Anesthetics",
+
+        image:
+          "https://www.arogga.com/_next/image?url=https%3A%2F%2Fcdn2.arogga.com%2FeyJidWNrZXQiOiJhcm9nZ2EiLCJrZXkiOiJUYXhvbm9teS10X2Jhbm5lclwvNjk3OVwvNjk3OS1NYWtldXAtOC10eDB3aXoucG5nIiwiZWRpdHMiOnsicmVzaXplIjp7IndpZHRoIjozNSwiaGVpZ2h0IjozNSwiZml0Ijoib3V0c2lkZSJ9fX0%3D&w=48&q=75",
+      },
+      {
+        name: "Antimicrobial",
+
+        image:
+          "https://www.arogga.com/_next/image?url=https%3A%2F%2Fcdn2.arogga.com%2FeyJidWNrZXQiOiJhcm9nZ2EiLCJrZXkiOiJUYXhvbm9teS10X2Jhbm5lclwvNjk3OVwvNjk3OS1NYWtldXAtOC10eDB3aXoucG5nIiwiZWRpdHMiOnsicmVzaXplIjp7IndpZHRoIjozNSwiaGVpZ2h0IjozNSwiZml0Ijoib3V0c2lkZSJ9fX0%3D&w=48&q=75",
+      },
+      {
+        name: "Chemotherapi",
+
+        image:
+          "https://www.arogga.com/_next/image?url=https%3A%2F%2Fcdn2.arogga.com%2FeyJidWNrZXQiOiJhcm9nZ2EiLCJrZXkiOiJUYXhvbm9teS10X2Jhbm5lclwvNjk3OVwvNjk3OS1NYWtldXAtOC10eDB3aXoucG5nIiwiZWRpdHMiOnsicmVzaXplIjp7IndpZHRoIjozNSwiaGVpZ2h0IjozNSwiZml0Ijoib3V0c2lkZSJ9fX0%3D&w=48&q=75",
+      },
+    ],
+  },
+
+  {
+    name: "PharmaCare",
+
+    image:
+      "https://www.arogga.com/_next/image?url=https%3A%2F%2Fcdn2.arogga.com%2FeyJidWNrZXQiOiJhcm9nZ2EiLCJrZXkiOiJUYXhvbm9teS10X2Jhbm5lclwvNzI3NlwvNzI3Ni1Gb29kLTgtbTdpdHEwLnBuZyIsImVkaXRzIjp7InJlc2l6ZSI6eyJ3aWR0aCI6MzUsImhlaWdodCI6MzUsImZpdCI6Im91dHNpZGUifX19&w=48&q=75",
+    folders: [
+      { name: "Anesthetics" },
+      { name: "Antimicrobial" },
+      { name: "Chemotherapi" },
+    ],
+  },
+
+  {
+    name: "PharmaCare",
+
+    image:
+      "https://www.arogga.com/_next/image?url=https%3A%2F%2Fcdn2.arogga.com%2FeyJidWNrZXQiOiJhcm9nZ2EiLCJrZXkiOiJUYXhvbm9teS10X2Jhbm5lclwvNzc1NFwvNzc1NC12ZXRlcmluYXJ5LW5reDl1ci5wbmciLCJlZGl0cyI6eyJyZXNpemUiOnsid2lkdGgiOjM1LCJoZWlnaHQiOjM1LCJmaXQiOiJvdXRzaWRlIn19fQ%3D%3D&w=48&q=75",
+    folders: [
+      { name: "Anesthetics" },
+      { name: "Antimicrobial" },
+      { name: "Chemotherapi" },
+    ],
+  },
+
+  {
+    name: "PharmaCare",
+
+    image:
+      "https://www.arogga.com/_next/image?url=https%3A%2F%2Fcdn2.arogga.com%2FeyJidWNrZXQiOiJhcm9nZ2EiLCJrZXkiOiJUYXhvbm9teS10X2Jhbm5lclwvNzc1NFwvNzc1NC12ZXRlcmluYXJ5LW5reDl1ci5wbmciLCJlZGl0cyI6eyJyZXNpemUiOnsid2lkdGgiOjM1LCJoZWlnaHQiOjM1LCJmaXQiOiJvdXRzaWRlIn19fQ%3D%3D&w=48&q=75",
+    folders: [
+      { name: "Anesthetics" },
+      { name: "Antimicrobial" },
+      { name: "Chemotherapi" },
+    ],
+  },
+
+
+  {
+    name: "PharmaCare",
+
+    image:
+      "https://www.arogga.com/_next/image?url=https%3A%2F%2Fcdn2.arogga.com%2FeyJidWNrZXQiOiJhcm9nZ2EiLCJrZXkiOiJUYXhvbm9teS10X2Jhbm5lclwvNzc1NFwvNzc1NC12ZXRlcmluYXJ5LW5reDl1ci5wbmciLCJlZGl0cyI6eyJyZXNpemUiOnsid2lkdGgiOjM1LCJoZWlnaHQiOjM1LCJmaXQiOiJvdXRzaWRlIn19fQ%3D%3D&w=48&q=75",
+    folders: [
+      { name: "Anesthetics" },
+      { name: "Antimicrobial" },
+      { name: "Chemotherapi" },
+    ],
+  },
+
+  {
+    name: "PharmaCare",
+
+    image:
+      "https://www.arogga.com/_next/image?url=https%3A%2F%2Fcdn2.arogga.com%2FeyJidWNrZXQiOiJhcm9nZ2EiLCJrZXkiOiJUYXhvbm9teS10X2Jhbm5lclwvNzc1NFwvNzc1NC12ZXRlcmluYXJ5LW5reDl1ci5wbmciLCJlZGl0cyI6eyJyZXNpemUiOnsid2lkdGgiOjM1LCJoZWlnaHQiOjM1LCJmaXQiOiJvdXRzaWRlIn19fQ%3D%3D&w=48&q=75",
+    folders: [
+      { name: "Anesthetics" },
+      { name: "Antimicrobial" },
+      { name: "Chemotherapi" },
+    ],
+  },
+
+
+  {
+    name: "PharmaCare",
+
+    image:
+      "https://www.arogga.com/_next/image?url=https%3A%2F%2Fcdn2.arogga.com%2FeyJidWNrZXQiOiJhcm9nZ2EiLCJrZXkiOiJUYXhvbm9teS10X2Jhbm5lclwvNzc1NFwvNzc1NC12ZXRlcmluYXJ5LW5reDl1ci5wbmciLCJlZGl0cyI6eyJyZXNpemUiOnsid2lkdGgiOjM1LCJoZWlnaHQiOjM1LCJmaXQiOiJvdXRzaWRlIn19fQ%3D%3D&w=48&q=75",
+    folders: [
+      { name: "Anesthetics" },
+      { name: "Antimicrobial" },
+      { name: "Chemotherapi" },
+    ],
+  },
+];
