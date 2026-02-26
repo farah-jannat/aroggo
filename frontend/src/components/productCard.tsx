@@ -1,3 +1,4 @@
+import useCartStore from "@/store/useCartStore";
 import React from "react";
 
 export interface Product {
@@ -16,21 +17,71 @@ interface ProductCardProps {
   product: Product;
 }
 const ProductCard = ({ product }: ProductCardProps) => {
+  const addToCart = useCartStore((state) => state.addToCart);
+
+  const handleAddToCart = (e: React.MouseEvent<HTMLButtonElement>) => {
+    // 1. Get the elements
+    const button = e.currentTarget;
+    const card = button.closest(".product-card"); // Add this class to your wrapper
+    const img = card?.querySelector("img");
+    const cartIcon = document.querySelector("#cart-icon"); // Add this ID to your Cart component
+
+    if (img && cartIcon) {
+      // 2. Clone the image
+      const flyingImg = img.cloneNode(true) as HTMLImageElement;
+
+      // 3. Calculate positions
+      const imgRect = img.getBoundingClientRect();
+      const cartRect = cartIcon.getBoundingClientRect();
+
+      // 4. Style the flying image
+      Object.assign(flyingImg.style, {
+        position: "fixed",
+        left: `${imgRect.left}px`,
+        top: `${imgRect.top}px`,
+        width: `${imgRect.width}px`,
+        height: `${imgRect.height}px`,
+        transition: "all 0.8s ease-in-out",
+        zIndex: "100",
+        pointerEvents: "none",
+      });
+
+      document.body.appendChild(flyingImg);
+
+      // 5. Trigger animation (next tick)
+      requestAnimationFrame(() => {
+        Object.assign(flyingImg.style, {
+          left: `${cartRect.left}px`,
+          top: `${cartRect.top}px`,
+          width: "20px",
+          height: "20px",
+          opacity: "0.4",
+        });
+      });
+
+      // 6. Cleanup and update Zustand
+      setTimeout(() => {
+        flyingImg.remove();
+        addToCart(product); // Your existing Zustand action
+      }, 800);
+    }
+  };
+
   const { title, image, oldPrice, price, discount, rating, reviews, delivery } =
     product;
   return (
-    <div className="max-w-[240px] border border-gray-200 rounded-xl  font-sans shadow-sm hover:shadow-md transition-shadow bg-white relative">
+    <div className="product-card max-w-[240px] cursor-pointer border border-gray-200 rounded-xl  font-sans shadow-sm hover:shadow-md transition-shadow bg-white relative">
       {/* 83% OFF Badge */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 bg-[#FF3B4E] text-white text-xs font-bold px-3 py-1 rounded-b-lg flex items-center gap-1">
         <span className="text-[10px]">⚡</span> 83% OFF
       </div>
 
       {/* Product Image */}
-      <div className="flex bg-red-600 justify-center">
+      <div className="flex justify-center">
         <img
           src={image}
           alt="HCG Pregnancy Test"
-          className="h-48 w-full object-cover object-fill"
+          className="h-48 w-full  rounded-t-xl object-cover object-contain"
         />
       </div>
 
@@ -76,10 +127,16 @@ const ProductCard = ({ product }: ProductCardProps) => {
           {/* Price and Add Button */}
           <div className="flex items-center justify-between">
             <div className="flex flex-col">
-              <span className="text-gray-400 line-through text-sm">৳ {oldPrice}</span>
+              <span className="text-gray-400 line-through text-sm">
+                ৳ {oldPrice}
+              </span>
               <span className="text-xl font-bold text-gray-900">৳ {price}</span>
             </div>
-            <button className="border-2 border-[#549B94] text-[#2D7069] font-bold py-2 px-4 rounded-lg hover:bg-[#F0F8F7] transition-colors">
+            <button
+              // onClick={() => addToCart(product)}
+              onClick={handleAddToCart}
+              className="border-2 border-[#549B94] text-[#2D7069] font-bold py-2 px-4 rounded-lg hover:bg-[#F0F8F7] cursor-pointer transition-colors"
+            >
               ADD
             </button>
           </div>

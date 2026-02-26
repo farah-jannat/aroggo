@@ -14,7 +14,7 @@ const FloatingCart = () => {
   });
 
   return (
-    <button className="flex flex-col items-center overflow-hidden rounded-l-2xl shadow-lg transition-transform hover:scale-105 active:scale-95">
+    <button id="cart-icon" className="flex flex-col items-center overflow-hidden rounded-l-2xl shadow-lg transition-transform hover:scale-105 active:scale-95">
       {/* Top Section: Icon and Item Count */}
       <div className="flex flex-col items-center justify-center bg-[#00796B] px-4 py-3 text-white min-w-[80px]">
         <ShoppingCart size={24} strokeWidth={2.5} />

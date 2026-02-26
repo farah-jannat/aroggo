@@ -52,15 +52,8 @@ const ProductSection = ({ title, textColor }: ProductSectionProps) => {
         }}
         slidesPerView={1.5} // Show a peek of the next slide on mobile
         spaceBetween={20}
-        centeredSlides={false} // Usually better for this layout unless you have many items
-        // navigation={true}
+        centeredSlides={false} // Usually better for this layout unless you have many item
         breakpoints={{
-          // Responsive breakpoints
-          // 300: { slidesPerView: 2 },
-          // 640: { slidesPerView: 4 },
-          // 1024: { slidesPerView: 4 },
-          // 1280: { slidesPerView: 5 },
-
           398: { slidesPerView: 2 },
           578: { slidesPerView: 3 },
           850: { slidesPerView: 4 },
@@ -72,17 +65,16 @@ const ProductSection = ({ title, textColor }: ProductSectionProps) => {
       >
         {products.map((product, idx) => (
           <SwiperSlide key={idx}>
-            <ProductCard
-             product={product}/>
+            <ProductCard product={product} />
           </SwiperSlide>
         ))}
       </Swiper>
 
-      <button className="custom-prev-product absolute left-2 top-1/2 -translate-y-1/2 z-20 w-10 h-10 bg-white border border-gray-100 rounded-full shadow-lg flex items-center justify-center transition-all hover:bg-gray-50 disabled:opacity-0">
+      <button className="custom-prev-product cursor-pointer absolute left-2 top-1/2 -translate-y-1/2 z-20 w-10 h-10 bg-white border border-gray-100 rounded-full shadow-lg flex items-center justify-center transition-all hover:bg-gray-50 disabled:opacity-0">
         <ChevronLeft size={20} className="text-[#008080]" />
       </button>
       {/* Next Arrow */}
-      <button className="custom-next-product absolute right-2 top-1/2 -translate-y-1/2 z-20 w-10 h-10 bg-white border border-gray-100 rounded-full shadow-lg flex items-center justify-center transition-all hover:bg-gray-50 disabled:opacity-0">
+      <button className="custom-next-product cursor-pointer absolute right-2 top-1/2 -translate-y-1/2 z-20 w-10 h-10 bg-white border border-gray-100 rounded-full shadow-lg flex items-center justify-center transition-all hover:bg-gray-50 disabled:opacity-0">
         <ChevronRight size={20} className="text-[#008080]" />
       </button>
     </div>
