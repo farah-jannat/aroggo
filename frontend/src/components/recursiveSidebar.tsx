@@ -1,4 +1,5 @@
 "use client";
+import SidebarHeader from "@/components/sidebar-header";
 import { ChevronRight, ChevronDown } from "lucide-react";
 import React, { useState } from "react";
 
@@ -12,13 +13,28 @@ const RecursiveSidebar = () => {
   let folders = [
     {
       name: "Medicine",
+      image: "/product1.avif",
       folders: [
         {
           name: "Anesthetics",
+          image: "/promo-img1.avif",
           folders: [
             {
               name: "muscle Relaxants",
-              folders: [{ name: "hola" }, { name: "inside" }],
+
+              image: "/footer-logo.avif",
+              folders: [
+                {
+                  name: "hola",
+
+                  image: "/promo-img1.avif",
+                },
+                {
+                  name: "inside",
+
+                  image: "/footer-logo.avif",
+                },
+              ],
             },
             { name: "Post Operative" },
           ],
@@ -30,6 +46,52 @@ const RecursiveSidebar = () => {
 
     {
       name: "HealthCare",
+
+      image: "/footer1.avif",
+      folders: [
+        { name: "Anesthetics" },
+        { name: "Antimicrobial" },
+        { name: "Chemotherapi" },
+      ],
+    },
+
+    {
+      name: "PharmaCare",
+
+      image: "/footer2.avif",
+      folders: [
+        { name: "Anesthetics" },
+        { name: "Antimicrobial" },
+        { name: "Chemotherapi" },
+      ],
+    },
+
+    {
+      name: "PharmaCare",
+
+      image: "/promo-img1.avif",
+      folders: [
+        { name: "Anesthetics" },
+        { name: "Antimicrobial" },
+        { name: "Chemotherapi" },
+      ],
+    },
+
+    {
+      name: "PharmaCare",
+
+      image: "/hero1.avif",
+      folders: [
+        { name: "Anesthetics" },
+        { name: "Antimicrobial" },
+        { name: "Chemotherapi" },
+      ],
+    },
+
+    {
+      name: "PharmaCare",
+
+      image: "/product1.avif",
       folders: [
         { name: "Anesthetics" },
         { name: "Antimicrobial" },
@@ -37,32 +99,13 @@ const RecursiveSidebar = () => {
       ],
     },
   ];
-  //   const folders: Folder[] = [
-  //     {
-  //       name: "Medicine",
-  //       folders: [
-  //         {
-  //           name: "Anesthetics &...",
-  //           folders: [
-  //             { name: "Muscle Relaxants" },
-  //             { name: "Post-Operative..." },
-  //             { name: "Local & Regional..." },
-  //             { name: "General..." },
-  //             { name: "Anesthesia..." },
-  //           ],
-  //         },
-  //         { name: "Antimicrobial" },
-  //         { name: "Cardiovascular..." },
-  //       ],
-  //     },
-  //     {
-  //       name: "HealthCare",
-  //       folders: [{ name: "Personal Care" }, { name: "Devices" }],
-  //     },
-  //   ];
+
+
 
   return (
-    <div className="w-[300px] bg-white h-screen border-r border-gray-100 shadow-sm overflow-y-auto">
+    <div className="w-full bg-white h-screen border-r border-gray-100 shadow-sm overflow-y-auto">
+      <SidebarHeader/>
+
       <ul className="flex flex-col">
         {folders.map((folder, idx) => (
           <FolderItem key={idx} folder={folder} />
@@ -82,7 +125,7 @@ function FolderItem({ folder }: { folder: Folder }) {
         onClick={() => setIsOpen(!isOpen)}
         className={`
           flex items-center justify-between py-3 px-4 cursor-pointer transition-colors
-          border-b border-gray-100
+          border-b border-gray-200
           ${isOpen ? "bg-[#eaf7f7]" : "hover:bg-gray-50"}
         `}
       >
