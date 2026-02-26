@@ -61,11 +61,11 @@ const PromoSection = () => {
       </Swiper>{" "}
       {/* --- CUSTOM ARROWS --- */}
       {/* Previous Arrow */}
-      <button className="custom-prev-promo absolute left-2 top-1/2 -translate-y-1/2 z-20 w-10 h-10 bg-white border border-gray-100 rounded-full shadow-lg flex items-center justify-center transition-all hover:bg-gray-50 disabled:opacity-0">
+      <button className="custom-prev-promo cursor-pointer absolute left-2 top-1/2 -translate-y-1/2 z-20 w-10 h-10 bg-white border border-gray-100 rounded-full shadow-lg flex items-center justify-center transition-all hover:bg-gray-50 disabled:opacity-0">
         <ChevronLeft size={20} className="text-[#008080]" />
       </button>
       {/* Next Arrow */}
-      <button className="custom-next-promo absolute right-2 top-1/2 -translate-y-1/2 z-20 w-10 h-10 bg-white border border-gray-100 rounded-full shadow-lg flex items-center justify-center transition-all hover:bg-gray-50 disabled:opacity-0">
+      <button className="custom-next-promo cursor-pointer absolute right-2 top-1/2 -translate-y-1/2 z-20 w-10 h-10 bg-white border border-gray-100 rounded-full shadow-lg flex items-center justify-center transition-all hover:bg-gray-50 disabled:opacity-0">
         <ChevronRight size={20} className="text-[#008080]" />
       </button>
     </div>

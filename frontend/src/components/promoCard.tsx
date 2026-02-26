@@ -65,7 +65,7 @@ const PromoCard = ({
 
       {/* Action Button */}
       <button
-        className={`mt-6 whitespace-nowrap  text-[14px] md:text-[18px]; bg-white p-2 rounded-xl font-bold text-center`}
+        className={`mt-6 whitespace-nowrap  text-[14px] md:text-[18px]; bg-white p-2 cursor-pointer rounded-xl font-bold text-center`}
       >
         {buttonText}
       </button>
