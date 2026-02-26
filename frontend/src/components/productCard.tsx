@@ -1,6 +1,23 @@
 import React from "react";
 
-const ProductCard = () => {
+export interface Product {
+  id: number | string;
+  title: string;
+  image: string;
+  oldPrice: number;
+  price: number;
+  discount: number;
+  rating: number;
+  reviews: number;
+  delivery: string;
+}
+
+interface ProductCardProps {
+  product: Product;
+}
+const ProductCard = ({ product }: ProductCardProps) => {
+  const { title, image, oldPrice, price, discount, rating, reviews, delivery } =
+    product;
   return (
     <div className="max-w-[240px] border border-gray-200 rounded-xl  font-sans shadow-sm hover:shadow-md transition-shadow bg-white relative">
       {/* 83% OFF Badge */}
@@ -11,9 +28,9 @@ const ProductCard = () => {
       {/* Product Image */}
       <div className="flex bg-red-600 justify-center">
         <img
-          src="/product1.avif"
+          src={image}
           alt="HCG Pregnancy Test"
-          className="h-48 w-full object-cover"
+          className="h-48 w-full object-cover object-fill"
         />
       </div>
 
@@ -30,7 +47,7 @@ const ProductCard = () => {
             </svg>
           </div>
           <span className="text-[11px] font-bold text-gray-700 uppercase tracking-tight">
-            12-24 HOURS
+            {delivery}
           </span>
         </div>
 
@@ -38,12 +55,12 @@ const ProductCard = () => {
           {/* Title */}
 
           <h3 className="text-lg font-bold text-gray-900 leading-tight mb-3 line-clamp-2">
-            Pregnancy HCG Test Midstream Strip...
+            {title}
           </h3>
 
           {/* Ratings */}
           <div className="flex items-center gap-1 mb-4">
-            {[...Array(5)].map((_, i) => (
+            {[reviews].map((_, i) => (
               <svg
                 key={i}
                 className="w-4 h-4 text-orange-400"
@@ -59,8 +76,8 @@ const ProductCard = () => {
           {/* Price and Add Button */}
           <div className="flex items-center justify-between">
             <div className="flex flex-col">
-              <span className="text-gray-400 line-through text-sm">৳ 120</span>
-              <span className="text-xl font-bold text-gray-900">৳ 20</span>
+              <span className="text-gray-400 line-through text-sm">৳ {oldPrice}</span>
+              <span className="text-xl font-bold text-gray-900">৳ {price}</span>
             </div>
             <button className="border-2 border-[#549B94] text-[#2D7069] font-bold py-2 px-4 rounded-lg hover:bg-[#F0F8F7] transition-colors">
               ADD

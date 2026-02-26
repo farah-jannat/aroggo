@@ -1,5 +1,11 @@
 "use client";
-import { FileText, MessageCircle, Store } from "lucide-react";
+import {
+  ChevronLeft,
+  ChevronRight,
+  FileText,
+  MessageCircle,
+  Store,
+} from "lucide-react";
 import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 
@@ -10,15 +16,16 @@ import "swiper/css/navigation";
 import { Pagination, Navigation } from "swiper/modules";
 import ProductCard from "@/components/productCard";
 import DealsHeader from "@/components/dealsHeader";
+import { products } from "@/constants";
 
 interface ProductSectionProps {
   title: string;
-  textColor: string; // Optional prop
+  textColor: string;
 }
 
 const ProductSection = ({ title, textColor }: ProductSectionProps) => {
   return (
-    <div className="w-full py-[32px] px-[16px] ">
+    <div className="w-full relative py-[32px] px-[16px] ">
       <div className=" pb-[12px] flex items-center justify-between rounded-t-lg">
         {/* Left Side: Title */}
         <h2
@@ -39,26 +46,45 @@ const ProductSection = ({ title, textColor }: ProductSectionProps) => {
       </div>
 
       <Swiper
-        slidesPerView={1} // Show a peek of the next slide on mobile
+        navigation={{
+          prevEl: ".custom-prev-product",
+          nextEl: ".custom-next-product",
+        }}
+        slidesPerView={1.5} // Show a peek of the next slide on mobile
         spaceBetween={20}
         centeredSlides={false} // Usually better for this layout unless you have many items
-        navigation={true}
+        // navigation={true}
         breakpoints={{
           // Responsive breakpoints
-          300: { slidesPerView: 2 },
-          640: { slidesPerView: 4 },
-          1024: { slidesPerView: 4 },
-          1280: { slidesPerView: 5 },
+          // 300: { slidesPerView: 2 },
+          // 640: { slidesPerView: 4 },
+          // 1024: { slidesPerView: 4 },
+          // 1280: { slidesPerView: 5 },
+
+          398: { slidesPerView: 2 },
+          578: { slidesPerView: 3 },
+          850: { slidesPerView: 4 },
+          1115: { slidesPerView: 5 },
+          // 1280: { slidesPerView: 5 },
         }}
         modules={[Pagination, Navigation]}
         className="mySwiper px-4 "
       >
-        {[1, 2, 3, 4, 5, 6, 7, 8, 9].map((item) => (
-          <SwiperSlide>
-            <ProductCard />
+        {products.map((product, idx) => (
+          <SwiperSlide key={idx}>
+            <ProductCard
+             product={product}/>
           </SwiperSlide>
         ))}
       </Swiper>
+
+      <button className="custom-prev-product absolute left-2 top-1/2 -translate-y-1/2 z-20 w-10 h-10 bg-white border border-gray-100 rounded-full shadow-lg flex items-center justify-center transition-all hover:bg-gray-50 disabled:opacity-0">
+        <ChevronLeft size={20} className="text-[#008080]" />
+      </button>
+      {/* Next Arrow */}
+      <button className="custom-next-product absolute right-2 top-1/2 -translate-y-1/2 z-20 w-10 h-10 bg-white border border-gray-100 rounded-full shadow-lg flex items-center justify-center transition-all hover:bg-gray-50 disabled:opacity-0">
+        <ChevronRight size={20} className="text-[#008080]" />
+      </button>
     </div>
   );
 };
