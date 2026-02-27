@@ -6,9 +6,9 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/pagination";
 import { Pagination, Autoplay } from "swiper/modules";
-import { bannerImages } from "@/constants";
 
-const Carousel = () => {
+
+const Carousel = ({images}:{images:string[]}) => {
   return (
     <div className="w-full h-full">
 
@@ -25,7 +25,7 @@ const Carousel = () => {
         modules={[Pagination, Autoplay]}
         className="mySwiper h-full"
       >
-        {bannerImages.map((imageUrl, index) => (
+        {images.map((imageUrl, index) => (
           <SwiperSlide
             key={index}
             className="flex items-center justify-center rounded-2xl"
