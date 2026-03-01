@@ -16,6 +16,7 @@ import "swiper/css/navigation";
 import { Pagination, Navigation } from "swiper/modules";
 import ProductCard from "@/components/productCard";
 import { products } from "@/constants";
+import { useRouter } from "next/navigation";
 
 interface ProductSectionProps {
   title: string;
@@ -23,6 +24,7 @@ interface ProductSectionProps {
 }
 
 const ProductSection = ({ title, textColor }: ProductSectionProps) => {
+  const router = useRouter();
   return (
     <div className="w-full relative py-[32px] px-[16px] ">
       <div className=" pb-[12px] flex items-center justify-between rounded-t-lg">
@@ -63,7 +65,10 @@ const ProductSection = ({ title, textColor }: ProductSectionProps) => {
         className="mySwiper px-4 "
       >
         {products.map((product, idx) => (
-          <SwiperSlide key={idx}>
+          <SwiperSlide
+            key={idx}
+            onClick={() => router.push(`/product/${product.id}`)}
+          >
             <ProductCard product={product} />
           </SwiperSlide>
         ))}
