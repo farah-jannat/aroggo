@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { ChevronLeft, ChevronRight, Heart, Zap } from "lucide-react";
-import Carousel from "@/components/carousel";
 import ProductCarousel from "@/components/product-carousel";
 
 const ProductGallery = () => {
@@ -43,7 +42,6 @@ const ProductGallery = () => {
           </button>
 
           <div className="max-w-[280px] sm:max-w-sm h-[360px] flex items-center justify-center">
-            {/* <Carousel images={images} /> */}
             <ProductCarousel
               images={images}
               arrowPrevButton=".custom-prev-productDetails"
@@ -51,11 +49,7 @@ const ProductGallery = () => {
               activeIndex={currentIndex}
               onSlideChange={setCurrentIndex}
             />
-            {/* <img
-              src={images[currentIndex]}
-              alt="Product"
-              className="w-full h-full object-contain"
-            /> */}
+          
           </div>
 
           <button className=" custom-next-productDetails absolute right-0 z-10 p-1 bg-gray-800/50 text-white rounded-full hover:bg-gray-700 transition">
@@ -63,21 +57,7 @@ const ProductGallery = () => {
           </button>
         </div>
 
-        {/* Brand/Size Banner - Right Side */}
-        {/* <div className="hidden md:flex flex-col w-24 order-3 h-[450px]">
-          <div className="bg-[#003B95] text-white flex-1 flex items-center justify-center rounded-t-sm">
-            <h2 className="uppercase font-bold tracking-widest text-2xl [writing-mode:vertical-lr] rotate-180">
-              Lifebuoy{" "}
-              <span className="font-light text-sm mt-2">
-                Care Handwash Refill
-              </span>
-            </h2>
-          </div>
-          <div className="bg-[#EE1C25] text-white p-4 text-center rounded-b-sm">
-            <span className="block text-3xl font-bold leading-tight">170</span>
-            <span className="block text-2xl font-bold">ml</span>
-          </div>
-        </div> */}
+       
       </div>
 
       {/* Footer Info */}
