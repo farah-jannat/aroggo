@@ -49,11 +49,11 @@ const ProductCarousel = ({
           prevEl: arrowPrevButton,
           nextEl: arrowNextButton,
         }}
-        pagination={{
-          clickable: true,
-        }}
+        // pagination={{
+        //   clickable: true,
+        // }}
         // 3. Include Autoplay in the modules array
-        modules={[Pagination, Autoplay, Navigation]}
+        modules={[ Autoplay, Navigation]}
         className="mySwiper h-full w-full "
       >
         {images.map((imageUrl, index) => (
