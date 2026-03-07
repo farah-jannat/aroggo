@@ -42,7 +42,7 @@ const PromoSection = () => {
           1280: { slidesPerView: 6 },
         }}
         modules={[Pagination, Navigation]}
-        className="mySwiper px-4"
+        className="mySwiper px-4 max-w-[1280px] mx-auto"
       >
         {/* SLIDE 1 */}
 

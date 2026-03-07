@@ -26,8 +26,8 @@ interface ProductSectionProps {
 const ProductSection = ({ title, textColor }: ProductSectionProps) => {
   const router = useRouter();
   return (
-    <div className="w-full relative py-[32px] px-[16px] ">
-      <div className=" pb-[12px] flex items-center justify-between rounded-t-lg">
+    <div className="w-full  relative py-[32px] px-[16px] ">
+      <div className=" pb-[12px] flex items-center justify-between rounded-t-lg max-w-[1280px] mx-auto">
         {/* Left Side: Title */}
         <h2
           className="font-bold text:[14px] md:text-xl tracking-tight"
@@ -62,7 +62,7 @@ const ProductSection = ({ title, textColor }: ProductSectionProps) => {
           // 1280: { slidesPerView: 5 },
         }}
         modules={[Pagination, Navigation]}
-        className="mySwiper px-4 "
+        className="mySwiper px-4 mx-auto max-w-[1280px]"
       >
         {products.map((product, idx) => (
           <SwiperSlide
