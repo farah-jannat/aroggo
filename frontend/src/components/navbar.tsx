@@ -10,6 +10,18 @@ import {
 } from "lucide-react";
 import Link from "next/link";
 import React from "react";
+import {
+  Dialog,
+  DialogClose,
+  DialogContent,
+  DialogDescription,
+  DialogFooter,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/dialog";
+import { Button } from "@/components/ui/button";
+import LoginModal from "@/components/login-modal";
 
 const Navbar = () => {
   const { toggleSidebar } = useSidebarStore();
@@ -66,7 +78,19 @@ const Navbar = () => {
 
             {/* User Icon Circle */}
             <div className="flex h-12 w-12 items-center justify-center rounded-full bg-gray-100 text-gray-500 ">
-              <User size={24} />
+              <Dialog>
+                <form>
+                  <DialogTrigger>
+                    {/* <Button variant="outline"> */}
+                      <User size={24} />
+                    {/* </Button> */}
+                  </DialogTrigger>
+                  <DialogContent className="md:max-w-[880px] md:max-h-[490px]">
+                    {/* <p>hello</p> */}
+                    <LoginModal/>
+                  </DialogContent>
+                </form>
+              </Dialog>
             </div>
 
             {/* Account Text */}
