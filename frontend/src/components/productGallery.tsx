@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import { ChevronLeft, ChevronRight, Heart, Zap } from "lucide-react";
+import Carousel from "@/components/carousel";
+import ProductCarousel from "@/components/product-carousel";
 
 const ProductGallery = () => {
   // Replace these with your actual image paths
@@ -36,20 +38,27 @@ const ProductGallery = () => {
         {/* Main Image Display */}
         <div className="relative flex-1 flex justify-center items-center bg-white order-1 md:order-2 group">
           {/* Navigation Arrows */}
-          <button className="absolute left-0 z-10 p-2 bg-gray-800/50 text-white rounded-full hover:bg-gray-700 transition">
+          <button className="custom-prev-productDetails absolute left-0 z-10 p-1 bg-gray-800/50 text-white rounded-full hover:bg-gray-700 transition">
             <ChevronLeft size={24} />
           </button>
 
-          <div className="max-w-sm h-[360px] flex items-center justify-center">
-            <img
+          <div className="max-w-[280px] sm:max-w-sm h-[360px] flex items-center justify-center">
+            {/* <Carousel images={images} /> */}
+            <ProductCarousel
+              images={images}
+              arrowPrevButton=".custom-prev-productDetails"
+              arrowNextButton=".custom-next-productDetails"
+              activeIndex={currentIndex}
+              onSlideChange={setCurrentIndex}
+            />
+            {/* <img
               src={images[currentIndex]}
-              //   src="https://www.arogga.com/_next/image?url=https%3A%2F%2Fcdn2.arogga.com%2FeyJidWNrZXQiOiJhcm9nZ2EiLCJrZXkiOiJQcm9kdWN0LXBfaW1hZ2VzXC81MzI3NVwvNTMyNzUtMi02ZW5qODQucG5nIiwiZWRpdHMiOnsicmVzaXplIjp7IndpZHRoIjoxMDAwLCJoZWlnaHQiOjEwMDAsImZpdCI6Im91dHNpZGUifSwib3ZlcmxheVdpdGgiOnsiYnVja2V0IjoiYXJvZ2dhIiwia2V5IjoibWlzY1wvd20ucG5nIiwiYWxwaGEiOjkwfX19&w=1280&q=75"
               alt="Product"
               className="w-full h-full object-contain"
-            />
+            /> */}
           </div>
 
-          <button className="absolute right-0 z-10 p-2 bg-gray-800/50 text-white rounded-full hover:bg-gray-700 transition">
+          <button className=" custom-next-productDetails absolute right-0 z-10 p-1 bg-gray-800/50 text-white rounded-full hover:bg-gray-700 transition">
             <ChevronRight size={24} />
           </button>
         </div>
