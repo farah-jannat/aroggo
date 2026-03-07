@@ -11,7 +11,7 @@ const RatingReviews = () => {
   ];
 
   return (
-    <div className="w-full lg:max-w-3xl   py-4 bg-white border border-gray-200 rounded-xl shadow-sm font-sans">
+    <div className="w-full   py-4 bg-white border border-gray-200 rounded-xl shadow-sm font-sans">
       {/* Header */}
       <h2 className="text-xl font-bold p-5 border-b text-gray-800 border-gray-100">
         Rating & Reviews

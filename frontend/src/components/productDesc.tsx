@@ -3,7 +3,7 @@ import React from "react";
 
 const ProductDesc = () => {
   return (
-    <div className="w-full lg:max-w-3xl py-4 bg-white">
+    <div className="w-full  py-4 bg-white">
       <div className="bg-white border border-gray-200 rounded-xl shadow-sm overflow-hidden">
         {/* Header Section */}
         <div className="flex items-center justify-between p-5 border-b border-gray-100">
