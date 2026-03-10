@@ -10,53 +10,54 @@ import { useSidebarStore } from "@/store/useSidebarStore";
 export default function Home() {
   const { isOpen, toggleSidebar } = useSidebarStore();
   return (
-    <div className=" bg-white ">
+    <div className=" bg-white">
       <div
         onClick={toggleSidebar}
         className={` h-screen w-full overflow-hidden
-            fixed inset-0 z-40 bg-black/50 transition-opacity duration-500
+            fixed inset-0 z-40 bg-black/50 transition-opacity duration-500 xl:opacity-0 xl:pointer-events-none
             ${isOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"}
           `}
       />
       <Navbar />
+      <div className="flex w-full">
+        {/* // --- *Left* (sidebar)--- */}
 
-      {/* // --- *Left* (sidebar)--- */}
-
-      <div
-        className={`
-            fixed top-0 left-0 z-50 h-full w-80 bg-white shadow-2xl
-            transition-transform duration-500 ease-in-out
-            ${isOpen ? "translate-x-0" : "-translate-x-full"}
+        <div
+          className={`
+            fixed top-0 left-0 z-60 h-full w-80 bg-white shadow-2xl
+            transition-transform duration-500 ease-in-out xl:sticky xl:h-screen xl:overflow-y-auto xl:translate-x-0 xl:w-[280px] xl:shadow-none xl:z-0
+            ${isOpen ? "translate-x-0" : "-translate-x-full xl:translate-x-0"}
           `}
-      >
-        <RecursiveSidebar />
-      </div>
+        >
+          <RecursiveSidebar />
+        </div>
 
-      {/* // --- *Right* (main contant) --- */}
+        {/* // --- *Right* (main contant) --- */}
 
-      <div className="h-full w-full overflow-y-auto">
-        <Hero />
-        <PromoSection />
-        {/* // --- all product sections here */}
-        <div className="bg-[#F0F9F9]">
-          <ProductSection
-            title={"Unilever: Deals you can't miss"}
-            textColor={"#56C1D0"}
-          />
+        <div className="xl:flex-1 h-full w-full overflow-y-auto">
+          <Hero />
+          <PromoSection />
+          {/* // --- all product sections here */}
+          <div className="bg-[#F0F9F9]">
+            <ProductSection
+              title={"Unilever: Deals you can't miss"}
+              textColor={"#56C1D0"}
+            />
+          </div>
+          <div className="bg-[#FDF0F8]">
+            <ProductSection
+              title={"skin'O X innsaei: Steal the Deal"}
+              textColor={"#E959B4"}
+            />
+          </div>
+          <div className="bg-[#F3E9E2]">
+            <ProductSection
+              title={"Ramadan Hydration Picks"}
+              textColor={"#963E0A"}
+            />
+          </div>
+          <Footer />
         </div>
-        <div className="bg-[#FDF0F8]">
-          <ProductSection
-            title={"skin'O X innsaei: Steal the Deal"}
-            textColor={"#E959B4"}
-          />
-        </div>
-        <div className="bg-[#F3E9E2]">
-          <ProductSection
-            title={"Ramadan Hydration Picks"}
-            textColor={"#963E0A"}
-          />
-        </div>
-        <Footer />
       </div>
     </div>
   );
