@@ -26,7 +26,7 @@ import LoginModal from "@/components/login-modal";
 const Navbar = () => {
   const { toggleSidebar } = useSidebarStore();
   return (
-    <div className="bg-white  text-[14px]">
+    <div className="bg-white sticky top-0 z-10 xl:z-60  text-[14px]">
       <div className=" px-[16px] shadow-sm pb-[26px]  py-[12px]">
         <div className="mx-auto  grid grid-cols-12 gap-2.5">
           <div className="flex items-center order-1 gap-2 col-span-6 max-[320px]:col-span-full sm:col-span-4 lg:col-span-2 lg:gap-2 ">
