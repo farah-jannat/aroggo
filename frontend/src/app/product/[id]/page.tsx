@@ -5,13 +5,13 @@ import { bannerImages, products } from "@/constants";
 import Navbar from "@/components/navbar";
 import RecursiveSidebar from "@/components/recursiveSidebar";
 import { useSidebarStore } from "@/store/useSidebarStore";
-import ProductDesc from "@/components/productDesc";
+import ProductDesc from "@/features/products/components/productDesc";
 import RatingReviews from "@/components/ratingReviews";
 import FaqSection from "@/components/faqSection";
-import ProductSection from "@/components/productSection";
-import ProductGallery from "@/components/productGallery";
+import ProductSection from "@/features/products/components/productSection";
+import ProductGallery from "@/features/products/components/productGallery";
 import Footer from "@/components/footer";
-import ProductDetailsRight from "@/components/product-details-right";
+import ProductDetailsRight from "@/features/products/components/product-details-right";
 
 const Product = () => {
   const { isOpen, toggleSidebar } = useSidebarStore();
@@ -60,7 +60,6 @@ const Product = () => {
         </div>
       </div>
 
-
       <div className="bg-[#F0F9F9]">
         <ProductSection title="Similar Product" textColor={"#56C1D0"} />
       </div>
@@ -70,4 +69,3 @@ const Product = () => {
 };
 
 export default Product;
-

@@ -2,7 +2,7 @@
 import Footer from "@/components/footer";
 import Hero from "@/components/hero";
 import Navbar from "@/components/navbar";
-import ProductSection from "@/components/productSection";
+import ProductSection from "@/features/products/components/productSection";
 import PromoSection from "@/components/promoSection";
 import RecursiveSidebar from "@/components/recursiveSidebar";
 import { useSidebarStore } from "@/store/useSidebarStore";
@@ -11,7 +11,6 @@ export default function Home() {
   const { isOpen, toggleSidebar } = useSidebarStore();
   return (
     <div className=" bg-white ">
-
       <div
         onClick={toggleSidebar}
         className={` h-screen w-full overflow-hidden
@@ -29,7 +28,6 @@ export default function Home() {
             transition-transform duration-500 ease-in-out
             ${isOpen ? "translate-x-0" : "-translate-x-full"}
           `}
-
       >
         <RecursiveSidebar />
       </div>
