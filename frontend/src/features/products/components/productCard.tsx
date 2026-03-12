@@ -20,6 +20,7 @@ const ProductCard = ({ product }: ProductCardProps) => {
   const addToCart = useCartStore((state) => state.addToCart);
 
   const handleAddToCart = (e: React.MouseEvent<HTMLButtonElement>) => {
+    e.stopPropagation();
     // 1. Get the elements
     const button = e.currentTarget;
     const card = button.closest(".product-card"); // Add this class to your wrapper
