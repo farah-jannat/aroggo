@@ -1,6 +1,9 @@
 import useCartStore from "@/store/useCartStore";
 import React from "react";
 
+import { ArrowRight, CheckCircle2, X } from "lucide-react";
+import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog";
+
 export interface Product {
   id: number | string;
   title: string;
@@ -133,13 +136,59 @@ const ProductCard = ({ product }: ProductCardProps) => {
               </span>
               <span className="text-xl font-bold text-gray-900">৳ {price}</span>
             </div>
-            <button
-              // onClick={() => addToCart(product)}
-              onClick={handleAddToCart}
-              className="border-2 border-[#549B94] text-[#2D7069] font-bold py-2 px-4 rounded-lg hover:bg-[#F0F8F7] cursor-pointer transition-colors"
-            >
-              ADD
-            </button>
+
+            <Dialog>
+              <form>
+                <DialogTrigger
+                  onClick={handleAddToCart}
+                  className="border-2 border-[#549B94] text-[#2D7069] font-bold py-2 px-4 rounded-lg hover:bg-[#F0F8F7] cursor-pointer transition-colors"
+                >
+                  {/* <Button variant="outline"> */}
+                  Add
+                  {/* </Button> */}
+                </DialogTrigger>
+                <DialogContent className="md:max-w-[880px] md:max-h-[490px]">
+                  {/* <p>hello</p> */}
+
+                  <div className="fixed top-4 right-4 z-50 flex items-center gap-4 bg-[#008a4e] text-white px-4 py-3 rounded-xl shadow-lg min-w-[340px] font-sans">
+                    {/* Success Icon */}
+                    <CheckCircle2 className="w-6 h-6 text-white stroke-[2.5]" />
+
+                    {/* Message */}
+                    <span className="flex-grow font-semibold text-lg tracking-tight">
+                      Added to cart!
+                    </span>
+
+                    {/* Action Button */}
+                    <button className="flex items-center gap-2 bg-black hover:bg-zinc-900 text-[#ffb800] py-2 px-4 rounded-lg transition-colors duration-200 ml-2">
+                      <span className="font-bold text-sm">View All</span>
+                      <ArrowRight className="w-4 h-4 stroke-[3]" />
+                    </button>
+
+                    {/* Close Button */}
+                    <button className="ml-1 p-1 hover:bg-white/10 rounded-full transition-colors">
+                      <X className="w-6 h-6 text-white" />
+                    </button>
+                  </div>
+                </DialogContent>
+              </form>
+            </Dialog>
+
+            {/* <Popover>
+              <PopoverTrigger>
+                <span
+                  // onClick={() => addToCart(product)}
+                  onClick={handleAddToCart}
+                  className="border-2 border-[#549B94] text-[#2D7069] font-bold py-2 px-4 rounded-lg hover:bg-[#F0F8F7] cursor-pointer transition-colors"
+                >
+                  Add
+                </span>
+              </PopoverTrigger>
+
+              <PopoverContent align="start">
+                <PopoverDescription></PopoverDescription>
+              </PopoverContent>
+            </Popover> */}
           </div>
         </div>
       </div>
