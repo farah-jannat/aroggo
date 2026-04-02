@@ -3,6 +3,12 @@ import React from "react";
 
 import { ArrowRight, CheckCircle2, X } from "lucide-react";
 import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog";
+import {
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from "@/components/ui/popover";
+import { toast } from "sonner";
 
 export interface Product {
   id: number | string;
@@ -136,43 +142,17 @@ const ProductCard = ({ product }: ProductCardProps) => {
               </span>
               <span className="text-xl font-bold text-gray-900">৳ {price}</span>
             </div>
-
-            <Dialog>
-              <form>
-                <DialogTrigger
-                  onClick={handleAddToCart}
-                  className="border-2 border-[#549B94] text-[#2D7069] font-bold py-2 px-4 rounded-lg hover:bg-[#F0F8F7] cursor-pointer transition-colors"
-                >
-                  {/* <Button variant="outline"> */}
-                  Add
-                  {/* </Button> */}
-                </DialogTrigger>
-                <DialogContent className="md:max-w-[880px] md:max-h-[490px]">
-                  {/* <p>hello</p> */}
-
-                  <div className="fixed top-4 right-4 z-50 flex items-center gap-4 bg-[#008a4e] text-white px-4 py-3 rounded-xl shadow-lg min-w-[340px] font-sans">
-                    {/* Success Icon */}
-                    <CheckCircle2 className="w-6 h-6 text-white stroke-[2.5]" />
-
-                    {/* Message */}
-                    <span className="flex-grow font-semibold text-lg tracking-tight">
-                      Added to cart!
-                    </span>
-
-                    {/* Action Button */}
-                    <button className="flex items-center gap-2 bg-black hover:bg-zinc-900 text-[#ffb800] py-2 px-4 rounded-lg transition-colors duration-200 ml-2">
-                      <span className="font-bold text-sm">View All</span>
-                      <ArrowRight className="w-4 h-4 stroke-[3]" />
-                    </button>
-
-                    {/* Close Button */}
-                    <button className="ml-1 p-1 hover:bg-white/10 rounded-full transition-colors">
-                      <X className="w-6 h-6 text-white" />
-                    </button>
-                  </div>
-                </DialogContent>
-              </form>
-            </Dialog>
+            <button
+              className="border-2 border-[#549B94] text-[#2D7069] font-bold py-2 px-4 rounded-lg hover:bg-[#F0F8F7] cursor-pointer transition-colors"
+              onClick={(e) => {
+                toast("Added to Cart!", {
+                  description: "View All",
+                });
+                handleAddToCart(e);
+              }}
+            >
+              Add
+            </button>
 
             {/* <Popover>
               <PopoverTrigger>
@@ -197,3 +177,37 @@ const ProductCard = ({ product }: ProductCardProps) => {
 };
 
 export default ProductCard;
+
+// <Popover>
+//   <PopoverTrigger
+//     onClick={handleAddToCart}
+//     className="border-2 border-[#549B94] text-[#2D7069] font-bold py-2 px-4 rounded-lg hover:bg-[#F0F8F7] cursor-pointer transition-colors"
+//   >
+//     Add
+//   </PopoverTrigger>
+//   <PopoverContent className="border-none bg-transparent shadow-none p-0 ">
+//     {/* <p>hello</p> */}
+//     <div className=" fixed bottom-8 left-1/2 -translate-x-1/2 z-50 flex items-center gap-4 bg-[#008a4e] text-white px-4 py-3 rounded-xl shadow-2xl min-w-[340px] font-sans transition-all animate-in fade-in slide-in-from-bottom-4"></div>
+
+//     <div className="fixed top-4 right-4 z-50 flex items-center gap-4 bg-[#008a4e] text-white px-4 py-3 rounded-xl shadow-lg min-w-[340px] font-sans">
+//       {/* Success Icon */}
+//       <CheckCircle2 className="w-6 h-6 text-white stroke-[2.5]" />
+
+//       {/* Message */}
+//       <span className="flex-grow font-semibold text-lg tracking-tight">
+//         Added to cart!
+//       </span>
+
+//       {/* Action Button */}
+//       <button className="flex items-center gap-2 bg-black hover:bg-zinc-900 text-[#ffb800] py-2 px-4 rounded-lg transition-colors duration-200 ml-2">
+//         <span className="font-bold text-sm">View All</span>
+//         <ArrowRight className="w-4 h-4 stroke-[3]" />
+//       </button>
+
+//       {/* Close Button */}
+//       <button className="ml-1 p-1 hover:bg-white/10 rounded-full transition-colors">
+//         <X className="w-6 h-6 text-white" />
+//       </button>
+//     </div>
+//   </PopoverContent>
+// </Popover>
