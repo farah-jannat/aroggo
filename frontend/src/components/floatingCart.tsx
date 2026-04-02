@@ -1,10 +1,14 @@
-import React from "react";
+import React, { forwardRef } from "react";
 import { ShoppingCart } from "lucide-react";
 import useCartStore from "@/store/useCartStore";
 
-const FloatingCart = () => {
+// Use forwardRef to allow DrawerTrigger to "hook" into this button
+const FloatingCart = forwardRef<
+  HTMLButtonElement,
+  React.ButtonHTMLAttributes<HTMLButtonElement>
+>((props, ref) => {
   const cart = useCartStore((state) => state.cart);
-  console.log("Current Cart in UI:", cart);
+
   let totalCount = 0;
   let totalPrice = 0;
 
@@ -14,7 +18,12 @@ const FloatingCart = () => {
   });
 
   return (
-    <button id="cart-icon" className="flex flex-col items-center overflow-hidden rounded-l-2xl shadow-lg transition-transform hover:scale-105 active:scale-95">
+    <button
+      {...props} // Spreads DrawerTrigger's onClick and aria-attributes
+      ref={ref} // Connects the reference
+      id="cart-icon"
+      className="flex flex-col items-center overflow-hidden rounded-l-2xl shadow-lg transition-transform hover:scale-105 active:scale-95"
+    >
       {/* Top Section: Icon and Item Count */}
       <div className="flex flex-col items-center justify-center bg-[#00796B] px-4 py-3 text-white min-w-[80px]">
         <ShoppingCart size={24} strokeWidth={2.5} />
@@ -27,6 +36,8 @@ const FloatingCart = () => {
       </div>
     </button>
   );
-};
+});
+
+FloatingCart.displayName = "FloatingCart";
 
 export default FloatingCart;
