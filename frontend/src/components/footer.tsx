@@ -1,5 +1,14 @@
 import FloatingCart from "@/components/floatingCart";
 import {
+  Drawer,
+  DrawerContent,
+  DrawerDescription,
+  DrawerHeader,
+  DrawerTitle,
+  DrawerTrigger,
+} from "@/components/ui/drawer";
+import Cart from "@/features/cart/components/cart";
+import {
   Facebook,
   Instagram,
   Linkedin,
@@ -162,7 +171,23 @@ const Footer = () => {
         </div>
       </div>
       <div className="hidden  fixed top-34 right-0 sm:flex flex-col items-end gap-3 z-50">
-        <FloatingCart />
+        <Drawer direction="right">
+          <DrawerTrigger asChild>
+            <FloatingCart />
+          </DrawerTrigger>
+          <DrawerContent className="z-66 h-full w-[400px] mt-0 rounded-none right-0 left-auto">
+            <div className="sr-only">
+              <DrawerHeader>
+                <DrawerTitle>Shopping Cart</DrawerTitle>
+                <DrawerDescription>
+                  Review your items and checkout
+                </DrawerDescription>
+              </DrawerHeader>
+            </div>
+            {/* Your Content */}
+            <Cart />
+          </DrawerContent>
+        </Drawer>
       </div>
     </footer>
   );

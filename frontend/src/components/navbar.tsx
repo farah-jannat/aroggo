@@ -22,6 +22,15 @@ import {
 } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
 import LoginModal from "@/components/login-modal";
+import {
+  Drawer,
+  DrawerContent,
+  DrawerDescription,
+  DrawerHeader,
+  DrawerTitle,
+  DrawerTrigger,
+} from "@/components/ui/drawer";
+import Cart from "@/features/cart/components/cart";
 
 const Navbar = () => {
   const { toggleSidebar } = useSidebarStore();
@@ -82,12 +91,12 @@ const Navbar = () => {
                 <form>
                   <DialogTrigger>
                     {/* <Button variant="outline"> */}
-                      <User size={24} />
+                    <User size={24} />
                     {/* </Button> */}
                   </DialogTrigger>
                   <DialogContent className="md:max-w-[880px] md:max-h-[490px]">
                     {/* <p>hello</p> */}
-                    <LoginModal/>
+                    <LoginModal />
                   </DialogContent>
                 </form>
               </Dialog>
@@ -107,11 +116,27 @@ const Navbar = () => {
 
             {/* Cart Icon with Badge */}
             <div className="relative cursor-pointer">
-              <ShoppingCart
-                size={28}
-                className="text-gray-600"
-                strokeWidth={1.5}
-              />
+              <Drawer direction="right">
+                <DrawerTrigger asChild>
+                  <ShoppingCart
+                    size={28}
+                    className="text-gray-600"
+                    strokeWidth={1.5}
+                  />
+                </DrawerTrigger>
+                <DrawerContent className="z-66 h-full w-[400px] mt-0 rounded-none right-0 left-auto">
+                  <div className="sr-only">
+                    <DrawerHeader>
+                      <DrawerTitle>Shopping Cart</DrawerTitle>
+                      <DrawerDescription>
+                        Review your items and checkout
+                      </DrawerDescription>
+                    </DrawerHeader>
+                  </div>
+                  {/* Your Content */}
+                  <Cart />
+                </DrawerContent>
+              </Drawer>
               {/* Red Notification Badge */}
               <span className="absolute -top-2 -right-2 flex h-5 w-5 items-center justify-center rounded-full bg-red-500 text-[10px] font-bold text-white">
                 0
