@@ -1,5 +1,19 @@
-import { CheckCircle2, ChevronRight, Info, MapPin, Pencil, Rocket, ShoppingCart, Trash2, X, Zap } from "lucide-react";
-import React from "react";
+"use client";
+import AddAddressModal from "@/components/add-address-modal";
+import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog";
+import {
+  CheckCircle2,
+  ChevronRight,
+  Info,
+  MapPin,
+  Pencil,
+  Rocket,
+  ShoppingCart,
+  Trash2,
+  X,
+  Zap,
+} from "lucide-react";
+import React, { useState } from "react";
 
 interface Product {
   //   id: string;
@@ -19,6 +33,12 @@ interface CartItemProps extends Product {
 }
 
 const Cart = () => {
+  const [isAddAddressOpen, setIsAddAddressOpen] = useState(false);
+  const [isAddFormOpen, setIsAddFormOpen] = useState(false);
+  const handleOpenAddForm = () => {
+    setIsAddAddressOpen(false); // Close first popup
+    setIsAddFormOpen(true); // Open second popup
+  };
   return (
     <div>
       <div className="max-w-md mx-auto bg-white shadow-2xl rounded-xl overflow-hidden border border-gray-100 max-h-[100vh] overflow-y-auto relative">
@@ -228,23 +248,44 @@ const Cart = () => {
             <ChevronRight className="text-gray-400" />
           </div>
 
-          {/* 5. Sticky Bottom Button */}
-          <div className="bg-[#007A7C] rounded-xl p-3 flex items-center justify-between text-white shadow-lg cursor-pointer hover:bg-[#006668] transition-all active:scale-[0.98]">
-            <div className="flex items-center gap-3 border-r border-white/20 pr-4">
-              <div className="bg-white/10 p-2 rounded-lg">
-                <ShoppingCart size={20} />
+          <Dialog open={isAddAddressOpen} onOpenChange={setIsAddAddressOpen}>
+            <DialogTrigger className="w-full">
+              {/* <Button variant="outline"> */}
+              {/* </Button> */}
+              <AddAddressModal isAddFormOpen = {isAddFormOpen} setIsAddAddressOpen={setIsAddAddressOpen} />
+            </DialogTrigger>
+            <DialogContent className="md:max-w-[500px] md:max-h-[200px]">
+              {/* <div className="w-full max-w-md overflow-hidden rounded-2xl bg-white shadow-xl mx-4"> */}
+              {/* Header */}
+              <div className="flex items-center justify-between border-b border-gray-100 px-4 py-2">
+                <h2 className="text-xl font-bold text-slate-800">Address</h2>
+                {/* <button
+                    className="text-gray-400 hover:text-gray-600 transition-colors"
+                  >
+                    <X size={24} />
+                  </button> */}
               </div>
-              <div>
-                <p className="text-[10px] font-medium opacity-80 uppercase">
-                  1 Items
+
+              {/* Body */}
+              <div className="flex flex-col items-center justify-center px-4 py-4 text-center">
+                <p className="mb-2 text-gray-500 font-medium">
+                  No addresses found. Please add an address.
                 </p>
-                <p className="text-lg font-bold">৳65</p>
+
+                {/* Action Button */}
+                <button
+                  className="w-full rounded-lg bg-[#00796B] py-2 text-lg font-semibold text-white transition-opacity hover:opacity-90 active:scale-[0.98]"
+                  onClick={handleOpenAddForm}
+                >
+                  Add New Address
+                </button>
               </div>
-            </div>
-            <button className="flex items-center gap-1 font-bold text-sm pl-4">
-              Select Address <ChevronRight size={18} />
-            </button>
-          </div>
+              {/* </div> */}
+            </DialogContent>
+          </Dialog>
+
+
+          {/* 5. Sticky Bottom Button */}
         </div>
       </div>
       );
