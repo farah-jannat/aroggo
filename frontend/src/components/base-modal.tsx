@@ -2,7 +2,13 @@
 
 import { Dispatch, ReactNode, SetStateAction } from "react";
 import { Drawer } from "vaul";
-import { Dialog, DialogContent, DialogTitle } from "./ui/dialog";
+import {
+  Dialog,
+  DialogContent,
+  DialogOverlay,
+  DialogPortal,
+  DialogTitle,
+} from "./ui/dialog";
 import { cn } from "@/lib/utils";
 import { useMediaQuery } from "@/hooks/use-media-query";
 
@@ -81,7 +87,24 @@ export const BaseModal = ({
       }}
     >
       <DialogTitle className="sr-only">Dialog</DialogTitle>
-      <DialogContent>{children}</DialogContent>
+      <DialogContent className={"zz-100!"}>{children}</DialogContent>
     </Dialog>
   );
+
+  // return (
+  //   <Dialog open={showModal} onOpenChange={setShowModal}>
+  //     {/* DialogPortal is the magic that moves the modal out of the Drawer's reach */}
+  //     <DialogPortal>
+  //       <DialogOverlay className="z-[90] bg-black/40" />
+  //       <DialogContent
+  //         className={cn("z-[100]", className)}
+  //         // This stops the click from reaching the Drawer underneath
+  //         onPointerDown={(e) => e.stopPropagation()}
+  //       >
+  //         <DialogTitle className="sr-only">Modal</DialogTitle>
+  //         {children}
+  //       </DialogContent>
+  //     </DialogPortal>
+  //   </Dialog>
+  // );
 };
