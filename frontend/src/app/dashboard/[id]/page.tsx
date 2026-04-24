@@ -1,5 +1,6 @@
 "use client";
 import AdditionalInfoModal from "@/features/dashboards/components/additional-info-modal";
+import ProductOptionModal from "@/features/dashboards/components/product-option-modal";
 import {
   dashProductSchema,
   DashProductType,
@@ -17,7 +18,13 @@ import {
 } from "react-hook-form";
 
 const AdminProduct = () => {
+  // states
   const [showInfoModal, setShowInfoModal] = useState(false);
+  const [additionalInfoIdx, setAdditionalInfoIdx] = useState<number | null>(
+    null,
+  );
+  const [openOptionModal, setOpenOptionModal] = useState(false);
+
   const form = useForm<DashProductType>({
     resolver: zodResolver(dashProductSchema) as Resolver<DashProductType>,
     defaultValues: {
@@ -47,12 +54,22 @@ const AdminProduct = () => {
     fields: infoFields,
     append: appendInfo,
     remove: removeInfo,
+    update: updateInfo,
   } = useFieldArray({
     control,
     name: "additionalInfo",
   });
 
-  
+  //  product options usefiledarry
+  const {
+    fields: productOptionFields,
+    append: appendProductOption,
+    remove: removeProductOption,
+    update: updateProductOption,
+  } = useFieldArray({
+    control,
+    name: "productOptions",
+  });
 
   const handleImageChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const files = e.target.files;
@@ -65,118 +82,175 @@ const AdminProduct = () => {
     }
   };
 
-  console.log("fileds ", imgFields);
   const onSubmit = (data: DashProductType) => {
     console.log("Form Data:", data);
   };
 
   return (
     <div className="bg-gray-100 relative">
-<div
-        
+      <div
         className={` h-screen w-full overflow-hidden
             fixed inset-0 z-10 bg-black/50 transition-opacity duration-500
             ${showInfoModal ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"}
           `}
       />
-      <FormProvider {...form}>
-        <form onSubmit={handleSubmit(onSubmit)} className="p-8">
-          <div className="bg-white rounded-xl  p-6">
-            <h3 className="text-lg font-semibold text-slate-700 mb-4">
-              Images
-            </h3>
+      {/* <FormProvider {...form}> */}
+      <form onSubmit={handleSubmit(onSubmit)} className="p-8">
+        <div className="bg-white rounded-xl  p-6">
+          <h3 className="text-lg font-semibold text-slate-700 mb-4">Images</h3>
 
-            <div className="flex flex-wrap gap-4">
-              {/* Existing Previews */}{" "}
-              {imgFields.map((field: ProductImage, index: number) => (
-                <div key={index} className="relative w-32 h-32 group">
-                  <img
-                    src={field.url}
-                    className="w-full h-full object-cover rounded-lg border border-slate-100"
-                    alt="Product"
-                  />
-                  <button
-                    type="button"
-                    onClick={() => removeImg(index)}
-                    className="absolute -top-2 -right-2 bg-red-500 text-white rounded-full p-1 opacity-0 group-hover:opacity-100 transition-opacity"
-                  >
-                    <X size={12} />
-                  </button>
-                </div>
-              ))}
-              {/* The "Add" Button Square */}
-              <label className="w-32 h-32 flex flex-col items-center justify-center border-2 border-dashed border-cyan-200 bg-cyan-50/50 rounded-lg cursor-pointer hover:bg-cyan-50 transition-colors">
-                <Plus className="text-cyan-500" size={32} strokeWidth={1} />
-                <input
-                  type="file"
-                  multiple
-                  className="hidden"
-                  accept="image/*"
-                  onChange={handleImageChange}
+          <div className="flex flex-wrap gap-4">
+            {/* Existing Previews */}{" "}
+            {imgFields.map((field: ProductImage, index: number) => (
+              <div key={index} className="relative w-32 h-32 group">
+                <img
+                  src={field.url}
+                  className="w-full h-full object-cover rounded-lg border border-slate-100"
+                  alt="Product"
                 />
-              </label>
-            </div>
+                <button
+                  type="button"
+                  onClick={() => removeImg(index)}
+                  className="absolute -top-2 -right-2 bg-red-500 text-white rounded-full p-1 opacity-0 group-hover:opacity-100 transition-opacity"
+                >
+                  <X size={12} />
+                </button>
+              </div>
+            ))}
+            {/* The "Add" Button Square */}
+            <label className="w-32 h-32 flex flex-col items-center justify-center border-2 border-dashed border-cyan-200 bg-cyan-50/50 rounded-lg cursor-pointer hover:bg-cyan-50 transition-colors">
+              <Plus className="text-cyan-500" size={32} strokeWidth={1} />
+              <input
+                type="file"
+                multiple
+                className="hidden"
+                accept="image/*"
+                onChange={handleImageChange}
+              />
+            </label>
+          </div>
+        </div>
+
+        {/* product Info  */}
+        <div className="bg-white p-6 mt-6 rounded-xl">
+          <h3 className="text-lg font-semibold text-slate-700 mb-4">
+            Product Info
+          </h3>
+          <div className="mt-8 grid grid-cols-1 gap-4 bg-white">
+            <label>Name</label>
+            <input
+              {...register("name")}
+              placeholder="Product Name"
+              className="p-3  border border-slate-300 rounded-lg focus:outline-cyan-500"
+            />
           </div>
 
-          {/* product Info  */}
-          <div className="bg-white p-6 mt-6 rounded-xl">
+          <div className="mt-8 grid grid-cols-1 gap-4 bg-white">
+            <label htmlFor=""> Description</label>
+            <input
+              {...register("description")}
+              placeholder="Product description"
+              className="p-3 py-10 border border-slate-300 rounded-lg focus:outline-cyan-500"
+            />
+          </div>
+
+          {/* Additional info inside product info  */}
+          <div className="mt-6">
             <h3 className="text-lg font-semibold text-slate-700 mb-4">
-              Product Info
+              Additional Info Section
             </h3>
-            <div className="mt-8 grid grid-cols-1 gap-4 bg-white">
-              <label>Name</label>
-              <input
-                {...register("name")}
-                placeholder="Product Name"
-                className="p-3  border border-slate-300 rounded-lg focus:outline-cyan-500"
-              />
-            </div>
-
-            <div className="mt-8 grid grid-cols-1 gap-4 bg-white">
-              <label htmlFor=""> Description</label>
-              <input
-                {...register("description")}
-                placeholder="Product description"
-                className="p-3 py-10 border border-slate-300 rounded-lg focus:outline-cyan-500"
-              />
-            </div>
-
-            {/* Additional info inside product info  */}
-            <div className="mt-6">
-              <h3 className="text-lg font-semibold text-slate-700 mb-4">
-                Additional Info Section
-              </h3>
-              {infoFields.map((info: ProductAdditionalInfo, index) => {
-                return (
-                  <div
-                    key={index}
-                    className="flex items center justify-between"
-                  >
-                    <span>{info.title}</span>
-                    <p>{info.description}</p>
-                  </div>
-                );
-              })}
-              <button className="text-blue-500 cursor-pointer" onClick={()=>setShowInfoModal(true)}>
-                + Add additional info modal
-              </button>
-
-              {showInfoModal && (
-                <div className="fixed z-12 top-[50%] left-[50%] translate-[-50%] w-[600px]">
-                  <AdditionalInfoModal setShowInfoModal={setShowInfoModal} />
+            {infoFields.map((info: ProductAdditionalInfo, index) => {
+              return (
+                <div
+                  key={index}
+                  className="flex items center justify-between hover:bg-blue-100 py-2 px-4"
+                  onClick={() => {
+                    (setShowInfoModal(true), setAdditionalInfoIdx(index));
+                  }}
+                >
+                  <span>{info.title}</span>
+                  <p>{info.description}</p>
                 </div>
-              )}
-            </div>
+              );
+            })}
+            <button
+              className="text-blue-500 cursor-pointer"
+              onClick={() => setShowInfoModal(true)}
+            >
+              + Add additional info modal
+            </button>
+
+            {showInfoModal && (
+              <div className="fixed z-12 top-[50%] left-[50%] translate-[-50%] w-[600px]">
+                <AdditionalInfoModal
+                  setShowInfoModal={setShowInfoModal}
+                  appendInfo={appendInfo}
+                  additionalInfoIdx={additionalInfoIdx}
+                  defaultValues={
+                    additionalInfoIdx !== null
+                      ? infoFields[additionalInfoIdx]
+                      : undefined
+                  }
+                  updateInfo={(data) => {
+                    if (additionalInfoIdx !== null) {
+                      updateInfo(additionalInfoIdx, data);
+                    }
+                  }}
+                  removeInfo={removeInfo}
+                />
+              </div>
+            )}
           </div>
+        </div>
+
+        {/* product Options  */}
+        <div className="bg-white p-6 mt-6 rounded-xl">
+          <h3 className="text-lg font-semibold text-slate-700 mb-4">
+            Product Options
+          </h3>
+          <p>Manage the options this product comes in.</p>
+          {productOptionFields.map((option, index) => (
+            // <div>
+            <>
+              <span>{option.name}</span>
+
+              {option.type === "Text"
+                ? option.choices.map((choice, idx) => (
+                    <span>{choice.value}</span>
+                  ))
+                : option.choices.map((choice, idx) => (
+                    <>
+                      <div className="bg-red-900"></div>
+                      <span>{choice.value}</span>
+                    </>
+                  ))}
+
+              {/* </div> */}
+            </>
+          ))}
+
           <button
-            type="submit"
-            className="py-[6px] mt-6 px-4 border border-gray-600 rounded-md"
+            onClick={() => setOpenOptionModal(true)}
+            className="text-blue-400"
           >
-            {" "}
-            submit
+            +Add Another Options
           </button>
-        </form>
-      </FormProvider>
+          {openOptionModal && (
+            <div className="fixed top-[50%] left-[50%] translate-[-50%]">
+              <ProductOptionModal setOpenOptionModal={setOpenOptionModal} />
+            </div>
+          )}
+        </div>
+
+        <button
+          type="submit"
+          className="py-[6px] mt-6 px-4 border border-gray-600 rounded-md"
+        >
+          {" "}
+          submit
+        </button>
+      </form>
+      {/* </FormProvider> */}
     </div>
   );
 };
