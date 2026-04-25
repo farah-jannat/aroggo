@@ -12,8 +12,8 @@ const ProductOptionModal = ({
   const [currentInput, setCurrentInput] = useState("");
   const [productOptions, setProductOptions] = useState({
     name: "",
-    type: "",
-    choices: [] as { value: string }[],
+    type: "text",
+    choices: [] as { name: string }[],
   });
 
   const handleEnter = (e: React.KeyboardEvent<HTMLInputElement>) => {
@@ -23,15 +23,16 @@ const ProductOptionModal = ({
       if (val) {
         setProductOptions({
           ...productOptions,
-          choices: [...productOptions.choices, { value: val }],
+          choices: [...productOptions.choices, { name: val }],
         });
+        setCurrentInput(" ");
       }
     }
   };
   console.log("product-opitons", productOptions);
 
   return (
-    <div className=" bg-white rounded-xl">
+    <div className=" bg-white rounded-xl w-[500px]">
       <div className="flex rounded-t-xl items-center justify-between p-4  bg-blue-400 ">
         <h3 className="text-lg font-semibold text-white">
           Add an Info Section
@@ -57,6 +58,9 @@ const ProductOptionModal = ({
           <select
             // {(`productOptions.${index}.type`)}
             className="p-3 border border-slate-300 rounded-lg focus:outline-cyan-500 bg-white"
+            onChange={(e) =>
+              setProductOptions({ ...productOptions, type: e.target.value })
+            }
           >
             <option value="Text">Text</option>
             <option value="Color">Color</option>
@@ -65,19 +69,51 @@ const ProductOptionModal = ({
         <div>
           <div className="flex my-6 flex-col gap-4">
             <label>Choices</label>
-            <input
-              value={currentInput}
-              onChange={(e) =>
-                // setProductOptions({
-                //   ...productOptions,
-                //   choices: e.target.value,
-                // })
-                setCurrentInput(e.target.value)
-              }
-              onKeyDown={handleEnter}
-              placeholder="e.g. Small, Large"
-              className="p-3  border border-slate-300 rounded-lg focus:outline-cyan-500"
-            />
+
+            <div className="flex items-center p-3 gap-2 border border-slate-300 rounded-lg focus:outline-cyan-500">
+              {productOptions.type === "Text"
+                ? productOptions.choices.map((choice, idx) => (
+                    <button
+                      className="bg-blue-200 rounded-md py-[2px] px-[4px]"
+                      key={idx}
+                    >
+                      {choice.name}
+                    </button>
+                  ))
+                : productOptions.choices.map((choice, idx) => (
+                    <div
+                      className="flex items-center gap-2 bg-blue-200 rounded-md py-[2px] px-[4px] "
+                      key={idx}
+                    >
+                      <input
+                      type="color"
+                      onClick={()=> {
+                        console.log("index", idx)
+                      }}
+                        className={`border-0 outline-0 w-4 h-4 rounded-full cursor-pointer `}
+                        // style={{ backgroundColor: choice.name }}
+                        // value={}
+                      />
+                      <button className=" " key={idx}>
+                        {choice.name}
+                      </button>
+                    </div>
+                  ))}
+              <input
+                value={currentInput}
+                onChange={(e) =>
+                  // setProductOptions({
+                  //   ...productOptions,
+                  //   choices: e.target.value,
+                  // })
+                  setCurrentInput(e.target.value)
+                }
+                onKeyDown={handleEnter}
+                placeholder="e.g. Small, Large"
+                // className="p-3  border border-slate-300 rounded-lg focus:outline-cyan-500"
+                className=" outline-none"
+              />
+            </div>
           </div>
         </div>
 

@@ -216,12 +216,12 @@ const AdminProduct = () => {
 
               {option.type === "Text"
                 ? option.choices.map((choice, idx) => (
-                    <span>{choice.value}</span>
+                    <span>{choice.name}</span>
                   ))
                 : option.choices.map((choice, idx) => (
                     <>
                       <div className="bg-red-900"></div>
-                      <span>{choice.value}</span>
+                      <span>{choice.name}</span>
                     </>
                   ))}
 
