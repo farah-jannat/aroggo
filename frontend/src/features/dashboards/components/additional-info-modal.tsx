@@ -11,7 +11,7 @@ interface AdditionalInfoModalProps {
   appendInfo: (data: { title: string; description: string }) => void;
   // updateInfo: (data: { title: string; description: string }) => void;
   updateInfo: (data: { title: string; description: string }) => void;
-  removeInfo:(index:number)=>void
+  removeInfo: (index: number) => void;
   additionalInfoIdx: number | null;
   defaultValues: { title: string; description: string } | undefined;
   // add more props here later
@@ -23,7 +23,7 @@ const AdditionalInfoModal = ({
   additionalInfoIdx,
   defaultValues,
   updateInfo,
-  removeInfo
+  removeInfo,
 }: AdditionalInfoModalProps) => {
   // const { register } = useFormContext<ProductAdditionalInfo>();
   const [infoInput, setInfoInput] = useState({
@@ -41,6 +41,7 @@ const AdditionalInfoModal = ({
     } else {
       appendInfo(infoInput);
     }
+    setInfoInput({ title: "", description: "" });
     setShowInfoModal(false);
   };
 
@@ -83,7 +84,9 @@ const AdditionalInfoModal = ({
         <div className="flex justify-end">
           <button
             className="py-[6px] cursor-pointer px-4 text-red-400"
-            onClick={() => {setShowInfoModal(false), removeInfo(additionalInfoIdx!)}}
+            onClick={() => {
+              (setShowInfoModal(false), removeInfo(additionalInfoIdx!));
+            }}
           >
             Delete this info
           </button>
