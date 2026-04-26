@@ -15,6 +15,7 @@ const additionalInfoSchema = z.object({
 
 const valueSchema = z.object({
   name: z.string(),
+  value: z.string()
 });
 
 const productOptionSchema = z.object({
@@ -57,6 +58,7 @@ export const dashProductSchema = z.object({
 export type DashProductType = z.infer<typeof dashProductSchema>;
 export type ProductImage = z.infer<typeof imgSchema>;
 export type ProductAdditionalInfo = z.infer<typeof additionalInfoSchema>;
+export type productOptionType = z.infer<typeof productOptionSchema>;
 
 // the product struct when submit
 
