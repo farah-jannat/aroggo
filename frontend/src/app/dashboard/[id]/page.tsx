@@ -1,6 +1,7 @@
 "use client";
 import AdditionalInfoModal from "@/features/dashboards/components/additional-info-modal";
 import ProductOptionModal from "@/features/dashboards/components/product-option-modal";
+import ProductVariantsModal from "@/features/dashboards/components/product-variants-modal";
 import {
   dashProductSchema,
   DashProductType,
@@ -8,7 +9,14 @@ import {
   ProductImage,
 } from "@/features/dashboards/schemas/dashboard-product-form.schema";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { ChevronLeft, MoreHorizontal, Plus, X } from "lucide-react";
+import {
+  ChevronLeft,
+  Delete,
+  Edit2,
+  MoreHorizontal,
+  Plus,
+  X,
+} from "lucide-react";
 import React, { useState } from "react";
 import {
   FormProvider,
@@ -24,6 +32,7 @@ const AdminProduct = () => {
     null,
   );
   const [openOptionModal, setOpenOptionModal] = useState(false);
+  const [productOptionIdx, setProductOptionIdx] = useState<number | null>(null);
 
   const form = useForm<DashProductType>({
     resolver: zodResolver(dashProductSchema) as Resolver<DashProductType>,
@@ -209,38 +218,89 @@ const AdminProduct = () => {
             Product Options
           </h3>
           <p>Manage the options this product comes in.</p>
-          {productOptionFields.map((option, index) => (
-            // <div>
-            <>
-              <span>{option.name}</span>
+          <div className="border boder-gray-200 rounded-xl my-6">
+            {productOptionFields.map((option, index) => (
+              // <div>
+              <div
+                key={index}
+                className="flex items-center gap-16 border-b border-gray-200 p-6 hover:bg-blue-50 cursor-pointer"
+                onClick={() => {
+                  (setOpenOptionModal(true), setProductOptionIdx(index));
+                }}
+              >
+                <span>{option.name}</span>
+                <div className="flex items-center gap-6">
+                  {option.type === "Text"
+                    ? option.choices.map((choice, idx) => (
+                        <span key={idx}>{choice.name}</span>
+                      ))
+                    : option.choices.map((choice, idx) => (
+                        <div key={idx} className="flex items-center gap-[6px]">
+                          <div
+                            className=" w-4 h-4 rounded-full"
+                            style={{ backgroundColor: choice.value }}
+                          ></div>
+                          <span>{choice.name}</span>
+                        </div>
+                      ))}
 
-              {option.type === "Text"
-                ? option.choices.map((choice, idx) => (
-                    <span>{choice.name}</span>
-                  ))
-                : option.choices.map((choice, idx) => (
-                    <>
-                      <div className="bg-red-900"></div>
-                      <span>{choice.name}</span>
-                    </>
-                  ))}
-
-              {/* </div> */}
-            </>
-          ))}
+                  {/* </div> */}
+                </div>
+                <div className="flex items-center gap-2">
+                  <span className="text-blue-400">
+                    <Edit2 size={18} />
+                  </span>
+                  <span
+                    className="text-blue-400"
+                    onClick={() => removeProductOption(index)}
+                  >
+                    <Delete size={20} />
+                  </span>
+                </div>
+              </div>
+            ))}
+          </div>
 
           <button
             onClick={() => setOpenOptionModal(true)}
-            className="text-blue-400"
+            className="text-blue-400 cursor-pointer"
           >
             +Add Another Options
           </button>
           {openOptionModal && (
             <div className="fixed top-[50%] left-[50%] translate-[-50%]">
-              <ProductOptionModal setOpenOptionModal={setOpenOptionModal} />
+              <ProductOptionModal
+                setOpenOptionModal={setOpenOptionModal}
+                appendProductOption={appendProductOption}
+
+
+
+
+                defaultValues={
+                  productOptionIdx !== null
+                    ? productOptionFields[productOptionIdx]
+                    : undefined
+                }
+                productOptionIdx={productOptionIdx}
+                  updateProductOption={(data) => {
+                    if (productOptionIdx !== null) {
+                      updateProductOption(productOptionIdx, data);
+                    }
+                  }}
+              />
             </div>
           )}
         </div>
+
+        {/* product varients  */}
+        {productOptionFields.length && (
+          <div className="bg-white p-6 mt-6 rounded-xl">
+            <h3 className="text-lg font-semibold text-slate-700 mb-4">
+              Product Varients
+            </h3>
+            <ProductVariantsModal />
+          </div>
+        )}
 
         <button
           type="submit"
