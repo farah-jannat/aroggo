@@ -15,7 +15,7 @@ const additionalInfoSchema = z.object({
 
 const valueSchema = z.object({
   name: z.string(),
-  value: z.string()
+  value: z.string(),
 });
 
 const productOptionSchema = z.object({
@@ -35,6 +35,7 @@ const productOptionSchema = z.object({
 });
 
 const productVarientsSchema = z.object({
+  name: z.string(),
   priceDifference: z.number(),
   cost: z.number(),
   sku: z.string(),
