@@ -3,15 +3,16 @@ import { boolean } from "zod";
 
 interface Props {
   isEnabled: boolean;
-  setIsEnabled: React.Dispatch<React.SetStateAction<boolean>>;
+//   setIsEnabled: React.Dispatch<React.SetStateAction<boolean>>;
+  toggleSwitch: () => void;
 }
 
 const VariantToggle = (props: Props) => {
-  const { isEnabled, setIsEnabled } = props;
+  const { isEnabled, toggleSwitch } = props;
 
-  const toggleSwitch = () => {
-    setIsEnabled((prev) => !prev);
-  };
+//   const toggleSwitch = () => {
+//     setIsEnabled((prev) => !prev);
+//   };
 
   return (
     <div className="flex items-center gap-3 font-sans">

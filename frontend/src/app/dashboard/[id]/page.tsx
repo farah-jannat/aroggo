@@ -32,8 +32,11 @@ const AdminProduct = () => {
   const [additionalInfoIdx, setAdditionalInfoIdx] = useState<number | null>(
     null,
   );
+
   const [openOptionModal, setOpenOptionModal] = useState(false);
   const [productOptionIdx, setProductOptionIdx] = useState<number | null>(null);
+
+  const [showVarintModal, setShowVarintModal] = useState(false);
 
   const [isVariant, setIsVariant] = useState(false);
 
@@ -95,13 +98,19 @@ const AdminProduct = () => {
 
   const {
     fields: productVarientFields,
-    append: appendProductVarient,
-    remove: removeProductVarient,
-    update: updateProductVarient,
+    replace: replaceVariants,
+    // append: appendProductVarient,
+    // remove: removeProductVarient,
+    // update: updateProductVarient,
   } = useFieldArray({
     control,
     name: "productVarients",
   });
+
+  const hh = () => {
+    setIsVariant((prev) => !prev);
+    !isVariant && setShowVarintModal(true);
+  };
 
   const handleImageChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const files = e.target.files;
@@ -118,15 +127,14 @@ const AdminProduct = () => {
     console.log("Form Data:", data);
   };
 
-
-  console.log("############### ", productVarientFields)
+  console.log("############### ", productVarientFields);
 
   return (
     <div className="bg-gray-100 relative">
       <div
         className={` h-screen w-full overflow-hidden
             fixed inset-0 z-0 bg-black/50 transition-opacity duration-500
-            ${showInfoModal || openOptionModal || isVariant ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"}
+            ${showInfoModal || openOptionModal || showVarintModal ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"}
           `}
       />
       <FormProvider {...form}>
@@ -305,7 +313,8 @@ const AdminProduct = () => {
             {productOptionFields.length > 0 && (
               <VariantToggle
                 isEnabled={isVariant}
-                setIsEnabled={setIsVariant}
+                // setIsEnabled={setIsVariant}
+                toggleSwitch={hh}
               />
             )}
 
@@ -332,14 +341,19 @@ const AdminProduct = () => {
 
           {/* product varients  */}
 
-          {isVariant && (
+          {showVarintModal && (
             // <ProductVariantsModal isOpen={isVariant} onClose={setIsVariant} />
 
             <div className="fixed top-[50%] left-[50%] translate-[-50%]">
-              <ProductVariantsModal />
+              <ProductVariantsModal
+                replaceVariants={replaceVariants}
+                variantFields={productVarientFields}
+                onClose={setShowVarintModal}
+              />
             </div>
           )}
-          {productVarientFields.length && (
+
+          {isVariant && productVarientFields.length && (
             <div className="bg-white p-6 mt-6 rounded-xl">
               <h3 className="text-lg font-semibold text-slate-700 mb-4">
                 Product Varients
@@ -362,7 +376,17 @@ const AdminProduct = () => {
                   <tbody>
                     {productVarientFields.map((field, index) => (
                       <tr key={field.id} className="border-b">
-                        <td className="p-2 font-medium">{/* {field.} */}</td>
+                        <td className="p-2 font-medium">{field.name}</td>
+                        <td className="p-2 font-medium">
+                          {field.priceDifference}
+                        </td>
+                        <td className="p-2 font-medium">
+                          {field.priceDifference}
+                        </td>
+
+                        <td className="p-2 font-medium">{field.status}</td>
+
+                        <td className="p-2 font-medium">{field.visibility}</td>
                       </tr>
                     ))}
                   </tbody>

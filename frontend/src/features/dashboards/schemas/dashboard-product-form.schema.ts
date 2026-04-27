@@ -60,6 +60,7 @@ export type DashProductType = z.infer<typeof dashProductSchema>;
 export type ProductImage = z.infer<typeof imgSchema>;
 export type ProductAdditionalInfo = z.infer<typeof additionalInfoSchema>;
 export type productOptionType = z.infer<typeof productOptionSchema>;
+export type productVariationType = z.infer<typeof productVarientsSchema>;
 
 // the product struct when submit
 
